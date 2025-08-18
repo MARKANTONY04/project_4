@@ -2,6 +2,29 @@
 
 {% load static %}
 
+{% block title %}
+Tony's Gym | Home
+{% endblock %}
+
 {% block content %}
-    <h1 class="display-4 text-success">It works!</h1>
+<div class="text-center py-5 bg-light rounded">
+    <h1 class="display-4">Welcome to Tony's Gym</h1>
+    <p class="lead">Your journey to strength and wellness starts here.</p>
+    <a href="" class="btn btn-primary btn-lg">Join Now</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <h2>Why Choose Us?</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">💪 Expert Trainers</li>
+            <li class="list-group-item">🏃‍♀️ Modern Equipment</li>
+            <li class="list-group-item">🧘‍♂️ Group Classes & Personal Training</li>
+            <li class="list-group-item">🥗 Nutrition Guidance</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <img src="https://via.placeholder.com/500x300" alt="Gym Image" class="img-fluid rounded shadow">
+    </div>
+</div>
 {% endblock %}
