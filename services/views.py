@@ -1,37 +1,28 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .models import GymSubscription, Class, NutritionGuide
-from .forms import GymSubscriptionForm, ClassForm, NutritionGuideForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import GymSubscription, FitnessClass, NutritionGuide
 
-def gym_subscriptions(request):
+
+def services_list(request):
     subscriptions = GymSubscription.objects.all()
-    return render(request, 'services/gym_subscriptions.html', {'subscriptions': subscriptions})
-
-def classes(request):
-    available_classes = Class.objects.all()
-    return render(request, 'services/classes.html', {'classes': available_classes})
-
-def nutrition_guides(request):
+    classes = FitnessClass.objects.all()
     guides = NutritionGuide.objects.all()
-    return render(request, 'services/nutrition_guides.html', {'guides': guides})
 
-@login_required
-def purchase_gym_subscription(request, subscription_id):
-    subscription = GymSubscription.objects.get(id=subscription_id)
-    
-    return redirect('services:thank_you')
+    context = {
+        'subscriptions': subscriptions,
+        'classes': classes,
+        'guides': guides,
+    }
+    return render(request, 'services/services.html', context)
 
-@login_required
-def purchase_class(request, class_id):
-    gym_class = Class.objects.get(id=class_id)
-    
-    return redirect('services:thank_you')
 
-@login_required
-def purchase_nutrition_guide(request, guide_id):
-    nutrition_guide = NutritionGuide.objects.get(id=guide_id)
-    
-    return redirect('services:thank_you')
+def service_detail(request, service_type, pk):
+    if service_type == "subscription":
+        service = get_object_or_404(GymSubscription, pk=pk)
+    elif service_type == "class":
+        service = get_object_or_404(FitnessClass, pk=pk)  
+    elif service_type == "guide":
+        service = get_object_or_404(NutritionGuide, pk=pk)
+    else:
+        return redirect("services_list")
 
-def thank_you(request):
-    return render(request, 'services/thank_you.html')
+    return render(request, "services/service_detail.html", {"service": service})

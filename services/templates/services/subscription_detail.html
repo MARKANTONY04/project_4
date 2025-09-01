@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ subscription.name }}</h2>
+<p>{{ subscription.description }}</p>
+<p>Price: ${{ subscription.price }} for {{ subscription.duration_months }} months</p>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ gym_class.name }}</h2>
+<p>{{ gym_class.description }}</p>
+<p>Schedule: {{ gym_class.schedule }}</p>
+<p>Price: ${{ gym_class.price }}</p>
+{% endblock %}

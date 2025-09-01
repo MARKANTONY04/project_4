@@ -1,12 +1,8 @@
 {% extends "base.html" %}
 
-{% load static %}
-
-{% block title %}
-Tony's Gym | Services
-{% endblock %}
-
 {% block content %}
+<h1>Our Services</h1>
+
 <h2>Gym Subscriptions</h2>
 <ul>
     {% for subscription in subscriptions %}
@@ -14,16 +10,15 @@ Tony's Gym | Services
             <h3>{{ subscription.name }}</h3>
             <p>{{ subscription.description }}</p>
             <p>Price: ${{ subscription.price }}</p>
-            <p>Duration: {{ subscription.duration }} months</p>
-            <a href="{% url 'services:purchase_gym_subscription' subscription.id %}">Purchase</a>
+            <p>Duration: {{ subscription.duration_months }} months</p>
+            <a href="{% url 'service_detail' 'subscription' subscription.id %}">View Details</a>
         </li>
+    {% empty %}
+        <li>No subscriptions available.</li>
     {% endfor %}
 </ul>
-{% endblock %}
 
-{% extends 'base.html' %}
-{% block content %}
-<h2>Classes</h2>
+<h2>Fitness Classes</h2>
 <ul>
     {% for gym_class in classes %}
         <li>
@@ -32,24 +27,24 @@ Tony's Gym | Services
             <p>Price: ${{ gym_class.price }}</p>
             <p>Schedule: {{ gym_class.schedule }}</p>
             <p>Instructor: {{ gym_class.instructor }}</p>
-            <a href="{% url 'services:purchase_class' gym_class.id %}">Purchase</a>
+            <a href="{% url 'service_detail' 'class' gym_class.id %}">View Details</a>
         </li>
+    {% empty %}
+        <li>No classes available.</li>
     {% endfor %}
 </ul>
-{% endblock %}
 
-{% extends 'base.html' %}
-{% block content %}
 <h2>Nutrition Guides</h2>
 <ul>
     {% for guide in guides %}
         <li>
             <h3>{{ guide.title }}</h3>
-            <p>{{ guide.description }}</p>
+            <p>{{ guide.content_summary }}</p>
             <p>Price: ${{ guide.price }}</p>
-            <p>Duration: {{ guide.duration }} days</p>
-            <a href="{% url 'services:purchase_nutrition_guide' guide.id %}">Purchase</a>
+            <a href="{% url 'service_detail' 'guide' guide.id %}">View Details</a>
         </li>
+    {% empty %}
+        <li>No guides available.</li>
     {% endfor %}
 </ul>
 {% endblock %}
