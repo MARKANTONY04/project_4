@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import GymSubscription, Class, NutritionGuide
 
-# Register your models here.
+admin.site.register(GymSubscription)
+admin.site.register(Class)
+admin.site.register(NutritionGuide)
