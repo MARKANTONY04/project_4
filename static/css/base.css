@@ -63,6 +63,29 @@ body {
 }
 */
 
+/* Services */
+
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-weight: 600;
+  color: #222;
+}
+
+.card-text {
+  color: #555;
+}
+
+
 /* Footer Styling */
 .footer {
   background: #111;
