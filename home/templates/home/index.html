@@ -8,28 +8,30 @@ Tony's Gym | Home
 
 {% block content %}
 <div class="text-center py-5 bg-light rounded">
-    <h1 class="display-4">Welcome to Tony's Gym</h1>
+    <h1 class="display-4 titles">Welcome to Tony's Gym</h1>
     <p class="lead">Your journey to strength and wellness starts here.</p>
-    <a href="" class="btn btn-primary btn-lg">Join Now</a>
+    <a href="{% url 'services:services_list' %}" class="btn btn-primary btn-lg">Join Now</a>
 </div>
 
-<div class="text-center my-5">
-    <h2>Where Strength Meets Community</h2>
+<div class="grey-background">
+<div class="text-center">
+    <h2 class="titles">Where Strength Meets Community</h2>
     <p>At Tony's Gym, we believe fitness is more than just reps and routines—it's a lifestyle. Whether you're a seasoned athlete or just starting your journey, our state-of-the-art facility and expert team are here to help you unlock your full potential.</p>
 </div>
 
 <div class="row mt-5">
     <div class="col-md-6">
-        <h2>Why Choose Us?</h2>
+        <h2 class="text-center titles">Why Choose Us?</h2>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">💪 Expert Trainers - Certified professionals who tailor workouts to your goals.</li>
-            <li class="list-group-item">🏃‍♀️ Modern Equipment - From free weights to smart machines, we’ve got it all.</li>
-            <li class="list-group-item">🧘‍♂️ Group Classes & Personal Training - HIIT, yoga, spin, and more—find your tribe and thrive.</li>
-            <li class="list-group-item">🥗 Nutrition Guidance - Fuel your body with personalized meal plans and guidance.</li>
+            <li class="list-group-item card-bg">💪 Expert Trainers - Certified professionals who tailor workouts to your goals.</li>
+            <li class="list-group-item card-bg">🏃‍♀️ Modern Equipment - From free weights to smart machines, we’ve got it all.</li>
+            <li class="list-group-item card-bg">🧘‍♂️ Group Classes & Personal Training - HIIT, yoga, spin, and more—find your tribe and thrive.</li>
+            <li class="list-group-item card-bg">🥗 Nutrition Guidance - Fuel your body with personalized meal plans and guidance.</li>
         </ul>
     </div>
     <div class="col-md-6">
         <img src="media/homepagegym.jpg" alt="Gym Image" class=" img-fluid rounded shadow images">
     </div>
+</div>
 </div>
 {% endblock %}

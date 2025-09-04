@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container my-5">
-    <h1 class="text-center mb-5">Our Services</h1>
+<div class="container my-5 grey-background p-2 rounded">
+    <h1 class="text-center mb-5 titles">Our Services</h1>
 
     <!-- Gym Subscriptions -->
-    <h2 class="mb-4">Gym Subscriptions</h2>
+    <h2 class="mb-4 titles text-center">Gym Subscriptions</h2>
     <div class="row">
         {% for subscription in subscriptions %}
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
-                <div class="card-body">
+                <div class="card-body card-bg">
                     <h5 class="card-title">{{ subscription.name }}</h5>
                     <p class="card-text">{{ subscription.description }}</p>
                     <p><strong>Price:</strong> £{{ subscription.price }}</p>
@@ -24,12 +24,12 @@
     </div>
 
     <!-- Fitness Classes -->
-    <h2 class="mt-5 mb-4">Fitness Classes</h2>
+    <h2 class="mt-5 mb-4 text-center titles">Fitness Classes</h2>
     <div class="row">
         {% for gym_class in classes %}
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
-                <div class="card-body">
+                <div class="card-body card-bg">
                     <h5 class="card-title">{{ gym_class.name }}</h5>
                     <p class="card-text">{{ gym_class.description }}</p>
                     <p><strong>Price:</strong> £{{ gym_class.price }}</p>
@@ -44,12 +44,12 @@
     </div>
 
     <!-- Nutrition Guides -->
-    <h2 class="mt-5 mb-4">Nutrition Guides</h2>
+    <h2 class="mt-5 mb-4 titles text-center">Nutrition Guides</h2>
     <div class="row">
         {% for guide in guides %}
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
-                <div class="card-body">
+                <div class="card-body card-bg">
                     <h5 class="card-title">{{ guide.title }}</h5>
                     <p class="card-text">{{ guide.content_summary }}</p>
                     <p><strong>Price:</strong> £{{ guide.price }}</p>
