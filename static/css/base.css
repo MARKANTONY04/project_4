@@ -58,6 +58,23 @@ body {
     border: 1px solid black !important;
 }
 
+/* Navbar */
+
+.navbar-nav .dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-nav .dropdown-item {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/*
 .title-anton {
     font-family: 'Anton';
 }
