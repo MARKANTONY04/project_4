@@ -41,9 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    # crispyforms
+    "crispy_forms",
+    "crispy_bootstrap4",
+    # allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # web apps
     'home',
     'services',
 ]
@@ -88,6 +93,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+# Crispy Forms config
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
