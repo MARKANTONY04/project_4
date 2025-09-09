@@ -74,6 +74,21 @@ body {
     background-color: #f8f9fa;
 }
 
+/* Additioanl navbar css */
+
+.navbar .fa-shopping-bag {
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.navbar .fa-shopping-bag:hover {
+    color: #0056b3;
+}
+
+.navbar p.my-0 {
+    font-weight: 600;
+}
+
+
 /*
 .title-anton {
     font-family: 'Anton';
