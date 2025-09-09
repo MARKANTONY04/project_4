@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # web apps
     'home',
     'services',
+    'bag',
 ]
 
 MIDDLEWARE = [
