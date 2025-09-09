@@ -1,29 +1,41 @@
 {% extends "base.html" %}
-{% block title %}Your Bag{% endblock %}
-
 {% block content %}
 <div class="container mt-5">
-  <h1 class="mb-4">Your Bag</h1>
+  <h1>Your Bag</h1>
 
-  {% if bag_items %}
-    <ul class="list-group">
-      {% for item in bag_items %}
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          {% if request.user.is_authenticated %}
-            {{ item.subscription.name|default:item.gym_class.name|default:item.guide.title }}
-            <span class="badge badge-primary badge-pill">x {{ item.quantity }}</span>
-          {% else %}
-            {{ item.name }}
-            <span class="badge badge-primary badge-pill">x {{ item.quantity }}</span>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-    <div class="mt-4 text-right">
-      <a href="{% url 'checkout:checkout' %}" class="btn btn-success">Proceed to Checkout</a>
-    </div>
+  {% if request.session.bag %}
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, item in request.session.bag.items %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>£{{ item.price }}</td>
+          <td>
+            <form action="{% url 'bag:update_bag' item.product_type item.id %}" method="POST" class="form-inline">
+              {% csrf_token %}
+              <input type="number" name="quantity" value="{{ item.quantity }}" min="0" class="form-control form-control-sm mr-2" style="width: 70px;">
+              <button type="submit" class="btn btn-sm btn-primary">Update</button>
+            </form>
+          </td>
+          <td>£{{ item.price|floatformat:2|add:item.quantity|floatformat:2 }}</td>
+          <td>
+            <a href="{% url 'bag:remove_from_bag' item.product_type item.id %}" class="btn btn-sm btn-danger">Remove</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   {% else %}
-    <p>Your bag is empty. <a href="{% url 'services:services_list' %}">Browse our services</a></p>
+    <p>Your bag is empty.</p>
   {% endif %}
 </div>
 {% endblock %}
