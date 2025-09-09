@@ -6,24 +6,24 @@ from django.dispatch import receiver
 from .models import SavedBagItem
 
 @receiver(user_logged_in)
-def merge_bag_on_login(sender, request, user, **kwargs):
+def merge_session_bag(sender, request, user, **kwargs):
+    """Merge session bag into user's saved bag on login."""
     session_bag = request.session.get("bag", {})
 
     for key, item in session_bag.items():
-        content_type = item["content_type"]
-        object_id = item["object_id"]
-        quantity = item["quantity"]
+        item_type = item.get("type")
+        item_id = item.get("id")
+        quantity = item.get("quantity", 1)
 
-        bag_item, created = SavedBagItem.objects.get_or_create(
+        saved_item, created = SavedBagItem.objects.get_or_create(
             user=user,
-            content_type=content_type,
-            object_id=object_id,
+            item_type=item_type,
+            item_id=item_id,
             defaults={"quantity": quantity},
         )
         if not created:
-            bag_item.quantity += quantity
-            bag_item.save()
+            saved_item.quantity += quantity
+            saved_item.save()
 
-    # Clear session bag after merge
-    if "bag" in request.session:
-        del request.session["bag"]
+    # Clear the session bag after merge
+    request.session["bag"] = {}
