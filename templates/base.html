@@ -63,6 +63,16 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'services:services_list' %}">Our Services</a>
       </li>
+      <li class="list-inline-item">
+      <a class="nav-link" href="{% url 'bag:view_bag' %}">
+        <div class="text-center">
+          <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+          <p class="my-0">
+            Bag ({{ bag_total_quantity }})
+          </p>
+        </div>
+      </a>
+    </li>
       {% if user.is_authenticated %}
     <li class="nav-item">
       <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
