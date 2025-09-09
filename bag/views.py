@@ -6,6 +6,7 @@ from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from services.models import GymSubscription, FitnessClass, NutritionGuide
 from .models import SavedBagItem
+from django.contrib import messages
 
 def add_to_bag(request, content_type, object_id):
     if request.user.is_authenticated:
@@ -41,6 +42,20 @@ def remove_from_bag(request, content_type, object_id):
 
 
 def view_bag(request):
-    from .bag_utils import get_bag_items
-    items = get_bag_items(request)
-    return render(request, "bag/bag.html", {"bag_items": items})
+    bag_items = []
+    bag_total_quantity = 0
+
+    if request.user.is_authenticated:
+        saved_items = SavedBagItem.objects.filter(user=request.user)
+        bag_items = saved_items
+        bag_total_quantity = sum(item.quantity for item in saved_items)
+    else:
+        session_bag = request.session.get("bag", {})
+        bag_items = session_bag.values()
+        bag_total_quantity = sum(item["quantity"] for item in session_bag.values())
+
+    context = {
+        "bag_items": bag_items,
+        "bag_total_quantity": bag_total_quantity,
+    }
+    return render(request, "bag/bag.html", context)
