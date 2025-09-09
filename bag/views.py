@@ -1,84 +1,55 @@
 #add or remove items from bag, also handles persistence
 
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
 from django.contrib import messages
-
+from django.urls import reverse
 from services.models import GymSubscription, FitnessClass, NutritionGuide
+from .models import SavedBagItem
 
-
-def _get_product_model(product_type):
-    """Helper to return the correct model class based on product_type."""
-    if product_type == "subscription":
-        return GymSubscription
-    elif product_type == "class":
-        return FitnessClass
-    elif product_type == "guide":
-        return NutritionGuide
-    else:
-        raise ValueError("Invalid product type")
+def _get_product(item_type, item_id):
+    """Helper to fetch the right product model based on type"""
+    if item_type == "subscription":
+        return get_object_or_404(GymSubscription, pk=item_id)
+    elif item_type == "class":
+        return get_object_or_404(FitnessClass, pk=item_id)
+    elif item_type == "guide":
+        return get_object_or_404(NutritionGuide, pk=item_id)
+    return None
 
 
 def view_bag(request):
-    """A view to show the bag contents"""
+    """Show the bag page"""
     return render(request, "bag/bag.html")
 
 
-def add_to_bag(request, product_type, product_id):
-    """Add a product to the shopping bag"""
-    model = _get_product_model(product_type)
-    product = get_object_or_404(model, pk=product_id)
-
+def add_to_bag(request, item_type, item_id):
+    """Add an item to the bag (session or database depending on user)"""
+    product = _get_product(item_type, item_id)
     quantity = int(request.POST.get("quantity", 1))
-    redirect_url = request.POST.get("redirect_url", reverse("services:services_list"))
+    redirect_url = request.POST.get("redirect_url", reverse("bag:view_bag"))
 
-    bag = request.session.get("bag", {})
-
-    key = f"{product_type}_{product_id}"
-
-    if key in bag:
-        bag[key]["quantity"] += quantity
+    if request.user.is_authenticated:
+        # Save in DB
+        bag_item, created = SavedBagItem.objects.get_or_create(
+            user=request.user, item_type=item_type, item_id=item_id,
+            defaults={"quantity": quantity}
+        )
+        if not created:
+            bag_item.quantity += quantity
+            bag_item.save()
     else:
-        bag[key] = {
-            "product_type": product_type,
-            "id": product.id,
-            "name": product.name if product_type != "guide" else product.title,
-            "price": float(product.price),
-            "quantity": quantity,
-        }
+        # Save in session
+        bag = request.session.get("bag", {})
+        key = f"{item_type}_{item_id}"
+        if key in bag:
+            bag[key]["quantity"] += quantity
+        else:
+            bag[key] = {"type": item_type, "id": item_id, "quantity": quantity}
+        request.session["bag"] = bag
 
-    request.session["bag"] = bag
-    messages.success(request, f"Added {product} to your bag")
+    messages.success(request, f"Added {quantity} × {product} to your bag")
     return redirect(redirect_url)
 
 
-def update_bag(request, product_type, product_id):
-    """Update the quantity of a product in the shopping bag"""
-    quantity = int(request.POST.get("quantity", 0))
-    key = f"{product_type}_{product_id}"
-    bag = request.session.get("bag", {})
-
-    if key in bag:
-        if quantity > 0:
-            bag[key]["quantity"] = quantity
-            messages.success(request, f"Updated {bag[key]['name']} quantity to {quantity}")
-        else:
-            bag.pop(key)
-            messages.success(request, "Item removed from your bag")
-
-    request.session["bag"] = bag
-    return redirect("bag:view_bag")
-
-
-def remove_from_bag(request, product_type, product_id):
-    """Remove the item from the shopping bag"""
-    key = f"{product_type}_{product_id}"
-    bag = request.session.get("bag", {})
-
-    if key in bag:
-        product_name = bag[key]["name"]
-        bag.pop(key)
-        messages.success(request, f"Removed {product_name} from your bag")
-
-    request.session["bag"] = bag
-    return redirect("bag:view_bag")
+def update_bag(request, item_type, item_id):
+    """Update quantity of an item in the bag"""
