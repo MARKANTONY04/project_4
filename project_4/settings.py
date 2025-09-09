@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     # web apps
     'home',
     'services',
-    'bag',
     'bag.apps.BagConfig', # for users to merge bags when logging in
 
 ]
