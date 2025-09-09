@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'home',
     'services',
     'bag',
+    'bag.apps.BagConfig', # for users to merge bags when logging in
+
 ]
 
 MIDDLEWARE = [
