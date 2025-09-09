@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h1>Your Bag</h1>
+
+  {% if request.session.bag %}
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, item in request.session.bag.items %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>£{{ item.price }}</td>
+          <td>
+            <form action="{% url 'bag:update_bag' item.product_type item.id %}" method="POST" class="form-inline">
+              {% csrf_token %}
+              <input type="number" name="quantity" value="{{ item.quantity }}" min="0" class="form-control form-control-sm mr-2" style="width: 70px;">
+              <button type="submit" class="btn btn-sm btn-primary">Update</button>
+            </form>
+          </td>
+          <td>£{{ item.price|floatformat:2|add:item.quantity|floatformat:2 }}</td>
+          <td>
+            <a href="{% url 'bag:remove_from_bag' item.product_type item.id %}" class="btn btn-sm btn-danger">Remove</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Your bag is empty.</p>
+  {% endif %}
+</div>
+{% endblock %}
