@@ -110,7 +110,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/bag/merge-after-login/' # created with chat gpt to merge bags after login
 
 WSGI_APPLICATION = 'project_4.wsgi.application'
 
