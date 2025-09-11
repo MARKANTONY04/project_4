@@ -298,31 +298,10 @@ def remove_from_bag(request, item_type, item_id):
     return redirect("bag:view_bag")
 
 
-
-@login_required
 def merge_session_bag_after_login(request):
     """
-    Call this after a successful login redirect to merge guest session bag
-    into SavedBagItem without losing anything.
+    Dummy endpoint just to handle redirect after login.
+    The real merging is done in signals.py.
     """
-    session_bag = _normalize_session_bag(request.session.get("bag", {}))
-    if session_bag:
-        for key, val in session_bag.items():
-            item_type = val["type"]
-            item_id = val["id"]
-            quantity = val["quantity"]
-
-            obj, created = SavedBagItem.objects.get_or_create(
-                user=request.user, item_type=item_type, item_id=item_id,
-                defaults={"quantity": quantity}
-            )
-            if not created:
-                obj.quantity += quantity
-                obj.save()
-
-        # clear session bag after merge
-        request.session["bag"] = {}
-        request.session.modified = True
-
-    messages.success(request, "Your guest bag was merged into your account.")
-    return redirect("bag:view_bag")
+    messages.success(request, "Your bag has been updated after login.")
+    return redirect("bag:view_bag") 
