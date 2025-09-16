@@ -13,6 +13,9 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 from bag.views import _normalize_session_bag, _get_product  # reuse helpers to read session bag
 from bag.models import SavedBagItem
 from .models import Order, OrderLineItem
+from django.shortcuts import render, redirect, get_object_or_404
+from bag.contexts import bag_contents
+from .forms import OrderForm
 
 
 def _get_bag_items_for_checkout(request):
@@ -115,3 +118,43 @@ def success(request):
 
 def cancel(request):
     return render(request, 'checkout/cancel.html')
+
+# stripe info/functions
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def checkout(request):
+    bag = request.session.get('bag', {})
+    if not bag:
+        return redirect('services')  # Or wherever your shop is
+
+    current_bag = bag_contents(request)
+    total = current_bag['grand_total']
+    stripe_total = round(total * 100)  # cents
+
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
+
+    order_form = OrderForm()
+
+    context = {
+        'order_form': order_form,
+        'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY,
+        'client_secret': intent.client_secret,
+    }
+    return render(request, 'checkout/checkout.html', context)
+
+
+def checkout_success(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+    # Clear the bag
+    if 'bag' in request.session:
+        del request.session['bag']
+
+    context = {
+        'order': order,
+    }
+    return render(request, 'checkout/checkout_success.html', context)
+
