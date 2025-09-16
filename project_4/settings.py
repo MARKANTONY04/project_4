@@ -30,6 +30,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', 'localhost']
 
+# stripe 
+
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
 
 # Application definition
 
@@ -51,7 +56,8 @@ INSTALLED_APPS = [
     # web apps
     'home',
     'services',
-    'bag.apps.BagConfig', # for users to merge bags when logging in
+    'bag.apps.BagConfig',
+    'checkout',
 
 ]
 
