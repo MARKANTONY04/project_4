@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Checkout</h2>
+
+  <form id="payment-form" method="POST">
+    {% csrf_token %}
+
+    {{ order_form.as_p }}
+
+    <!-- Stripe card element -->
+    <div id="card-element" class="mb-3"></div>
+    <div id="card-errors" role="alert" class="text-danger"></div>
+
+    <!-- Hidden input for client secret -->
+    <input type="hidden" id="id_client_secret" value="{{ client_secret }}">
+
+    <button id="submit-button" class="btn btn-primary mt-3">
+      Pay {{ grand_total|floatformat:2 }} {{ stripe_currency|upper }}
+    </button>
+  </form>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const stripe = Stripe("{{ stripe_publishable_key }}");
+  const elements = stripe.elements();
+  const card = elements.create("card", { style: { base: { fontSize: "16px" } } });
+  card.mount("#card-element");
+
+  card.on("change", function(event) {
+    const displayError = document.getElementById("card-errors");
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = "";
+    }
+  });
+
+  const form = document.getElementById("payment-form");
+  form.addEventListener("submit", function(ev) {
+    ev.preventDefault();
+    document.getElementById("submit-button").disabled = true;
+
+    stripe.confirmCardPayment(document.getElementById("id_client_secret").value, {
+      payment_method: { card: card }
+    }).then(function(result) {
+      if (result.error) {
+        // Show error to the user
+        const displayError = document.getElementById("card-errors");
+        displayError.textContent = result.error.message;
+        document.getElementById("submit-button").disabled = false;
+      } else {
+        if (result.paymentIntent.status === "succeeded") {
+          form.submit(); // Let Django handle order creation
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}
