@@ -143,6 +143,11 @@ def checkout(request):
         'order_form': order_form,
         'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY,
         'client_secret': intent.client_secret,
+        'order_form': order_form,
+        'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY,
+        'client_secret': intent.client_secret,
+        'grand_total': total,
+        'stripe_currency': settings.STRIPE_CURRENCY,
     }
     return render(request, 'checkout/checkout.html', context)
 
