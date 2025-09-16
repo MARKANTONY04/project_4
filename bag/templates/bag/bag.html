@@ -45,9 +45,7 @@
         <a href="{% url 'services:services_list' %}" class="btn btn-outline-secondary">
           ← Continue Shopping
         </a>
-        <a href="" class="btn btn-success">
-          Proceed to Checkout →
-        </a>
+        <button id="checkout-button" class="btn btn-success">Proceed to Checkout →</button>
       </div>
     </div>
 
@@ -58,4 +56,35 @@
     </div>
   {% endif %}
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document.getElementById('checkout-button').addEventListener('click', function(evt){
+    evt.preventDefault();
+    fetch("{% url 'checkout:create_session' %}", {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': '{{ csrf_token }}',
+        'Accept': 'application/json'
+      },
+      body: new URLSearchParams({}) // add any fields if needed
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.url) {
+        window.location = data.url; // server returned session.url
+      } else if (data.id) {
+        // fallback: use stripe.js
+        const stripe = Stripe("{{ STRIPE_PUBLISHABLE_KEY }}");
+        stripe.redirectToCheckout({ sessionId: data.id });
+      } else {
+        alert('Error creating checkout session');
+      }
+    });
+  });
+</script>
+
 {% endblock %}
