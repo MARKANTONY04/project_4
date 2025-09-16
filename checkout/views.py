@@ -111,9 +111,13 @@ def create_checkout_session(request):
 
 
 def success(request):
-    # optionally show order info
-    session_id = request.GET.get('session_id')
-    return render(request, 'checkout/success.html', {'session_id': session_id})
+    session_id = request.GET.get("session_id")
+    order = None
+
+    if session_id:
+        order = get_object_or_404(Order, stripe_session_id=session_id)
+
+    return render(request, "checkout/success.html", {"order": order})
 
 
 def cancel(request):
