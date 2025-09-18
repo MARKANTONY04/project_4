@@ -106,6 +106,10 @@
   {% block postloadjs %}
   {% endblock %}
 
+  <!-- Back to Top Button by Chat GPT -->
+<button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">↑</button>
+
+
   <!-- Footer -->
 <footer class="footer bg-dark text-light pt-5">
   <div class="container">
@@ -172,6 +176,9 @@
     </div>
   </div>
 </footer>
+
+{% load static %}
+<script src="{% static 'js/back_to_top.js' %}"></script>
 
 
 </body>
