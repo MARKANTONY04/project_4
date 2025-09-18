@@ -35,6 +35,8 @@ ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', 'localhost']
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
+STRIPE_CURRENCY = "gbp"
+DEFAULT_FROM_EMAIL = "yourshop@example.com" # for confimation emails
 
 # Application definition
 
