@@ -126,15 +126,22 @@ def success(request):
     if session_id:
         order = get_object_or_404(Order, stripe_session_id=session_id)
 
-    # Calculate total paid (sum of line totals)
     total_paid = sum(item.line_total for item in order.lineitems.all())
+
+    # Clear guest bag (session)
+    if 'bag' in request.session:
+        del request.session['bag']
+
+    # Clear saved bag (logged-in users)
+    if request.user.is_authenticated:
+        SavedBagItem.objects.filter(user=request.user).delete()
 
     return render(
         request,
         "checkout/success.html",
         {
             "order": order,
-            "total_paid": total_paid,  # pass it to template
+            "total_paid": total_paid,
         },
     )
 
