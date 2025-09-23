@@ -149,7 +149,7 @@ WSGI_APPLICATION = 'project_4.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(os.environ.get("DATABASE_URL"))
 }
 
 
