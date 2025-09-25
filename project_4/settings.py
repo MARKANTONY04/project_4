@@ -148,12 +148,20 @@ WSGI_APPLICATION = 'project_4.wsgi.application'
 # }
 
 
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+# }
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
 
 # DATABASES = {
-#     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+#     "default": dj_database_url.config(
+#         default="sqlite:///db.sqlite3",  # fallback for local
+#         conn_max_age=600,
+#         ssl_require=True
+#     )
 # }
 
 
