@@ -333,3 +333,24 @@ This project was deployed early in development as per good software development
 practice to help spot bugs as they appeared on a real website and not just a
 developer environment. Overall, the deployment of this website was a smooth
 experience, with no issues flagging up as a result.
+
+
+
+### 6. Credits
+
+Firstly, I would like to thank my mentor for helping me with ideas for projects and good software development on this course.
+
+I would also like to thank the free technologies that I have been able to use for this project, I will once again mention Bootstrap, GitHub, Visual Studio Code, Chat GPT and Slack for all of these tools that have helped made coding this project possible.
+
+I would also like to mention that I used the README.md from my last project with
+Code institute as a template for this README.md. Like all good software developers,it's good to reuse code (and other things) when appropriate to do so to save time, allowing me to direct my attention elsewhere.
+
+I would like to thank W3 as I learned some of the CSS I used for this project,
+underline text in particular.
+
+Last, and certainly not least I would like to once again thank Code Institute. I havelearned backend end software/web development with Django in a matter of weeks
+thank to them and would not have been able to create this project without them.
+Furthermore, the walkthrough projects (Boutique Ado inspired this project’s base
+template as you can probably see) throughout this module culminating in this project have been particularly useful. I would not be here without the teaching I have received from Code institute, and hope this project shows the skills I have learned,and now have been able to implement. 
+
+Also I’d again like to thank chat GPT who helped me create some templates noted and to rewrite some views in the bag and checkout app to fix bugs.
