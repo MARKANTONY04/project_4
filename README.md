@@ -334,7 +334,23 @@ https://validator.w3.org/
 
 ##### CSS
 
+I passed the CSS for this project through the industry recognised W3 CSS validator (linked below) and after removing unused CSS, it passed first try without any issues as seen below.
 
+![validator pass css](README.md-media/image2.png)
+
+
+##### Python and Django
+
+All Python and Django code was written using the pep8 guidelines.
+
+
+##### Javascript
+
+I tested my javascript with JSHint which is lined below. As seen by the screenshit there were no warnings thankfully, meaning nothing had to be changed as everything passed and is working as intended.
+
+![javescript validator pass](README.md-media/imagejs.png)
+
+https://jshint.com/
 
 
 
