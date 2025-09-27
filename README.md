@@ -313,6 +313,31 @@ There was an invalid map filter on the checkout page causing an error on loading
 removing this filter fixed the error allowing successful stripe page load.
 
 
+#### Code Testing
+
+Testing is an important part of any project, especially in software development and web applications to ensure that the site/project is working as intended with no bugs interfering with the user experience. The HTML, CSS, and Python/Django were all tested and verified for this project, demonstrating that the project is fully working as intended.
+
+##### HTML
+
+All the HTML code passed through the industry recognised W3 Validator (linked below). Due to using Django, some errors popped up when testing my code with the validator as seen below as the validator is not used to Django template code (url links etc). Therefore I removed all incompatible code with the validator and thankfully the code was tested and passed through the validator as seen below demonstrating that this project has met the HTML requirements as seen below.
+
+Also, the iframe element had a width = '100%', an incompatible value therefore I added the width = 100% class to css and gave it the class '.iframe'
+
+![validator fail html](README.md-media/image-1.png)
+
+![validator pass html](README.md-media/image.png)
+
+This was the base template, the other pages were checked and alos passed. Here is a link to the validator:
+
+https://validator.w3.org/
+
+
+##### CSS
+
+
+
+
+
 ### 5. Deployment
 
 This project was deployed using Heroku. Code was committed to git, and then
