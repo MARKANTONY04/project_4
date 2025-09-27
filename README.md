@@ -352,6 +352,28 @@ I tested my javascript with JSHint which is lined below. As seen by the screensh
 
 https://jshint.com/
 
+#### Lighthouse
+
+Using Chrome Dev Tools, I was able to use the Lighthouse tool to test the reliability and functionality of the website from a user end point of view. I decided to use incognito mode to run the test as this blocks web extensions that can falsely hinder results. After first running the test, here are the results I received:
+
+![lighthouse report](README.md-media/imagelighthouse.png)
+
+Overall great results. All are in the high 80's or 90's
+
+![Font and bootstrap lowering performace on lighthouse](README.md-media/imagep.png)
+
+This image shows that bootstrap and the font i'm using is dectrasing the perfrmance to a score of 85/100. As this is a high score I will keep bootstrap as it's findamntal to the fromt end and I'll keep the font as it's bold style suits the site well and the imapct of these is minimal as the score is still high.
+
+![lighthouse accessability issue](README.md-media/imagela.png)
+
+Accessability scored a high score of 89, a suggestion was made to add an aria label as seen above. I then added the aria-label to mitigate this error. Another suggestion was to increase the contrast in the background color. I left the color as it was as any darker would intefer with some text, and it wasn't a big issue as the score was high (89) meaning it would't pose a significant issue to users.
+
+
+![lighthouse best practice](README.md-media/imagebp.png)
+
+Best practice scored a high score of 96. The suggestion was to fix an image that wasn't loading properly. I decided to remove this image from the site as it was unecessary. This is a high score showing this site follows all web development best practices.
+
+
 
 
 ### 5. Deployment
