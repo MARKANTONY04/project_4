@@ -245,6 +245,74 @@ I used Microsoft Copilot to autofill the services sections with snazzy names and
 descriptions for the services page, saving me a lot of time to focus elsewhere such as fixing bugs.
 
 
+### 4. Testing
+
+#### Bug Fixes
+
+I encountered many bugs during the course of this project, both minor and major. I
+fixed several myself but for some of the major bugs I used Chat GPT which was a
+great help and allowed me to fix bugs quicker allowing me to focus on other areas of my project instead of spending time fixing bugs. A list of these bugs and how I fixed them can be found below:
+
+##### Major bugs
+
+###### Bag app/page
+
+I had originally planned to have a ‘merge bag’ feature on login, where the user’s bag would merge on log in to their account. After spending a lot of time on trying to get this feature to work unfortunately I was not able to do so because of the deadline and other priorities. I used AI tools like chat GPT to help get ideas on how to implement this feature, like adding in a context processor and the bag_utils.py file but alas to no avail. I also tried using a user_logged_in signal but still had trouble getting it to work due to errors and issues with other website features. You may be able to tell with the different commits that I had to redo the bag template, views, and context processor several times due to errors in the code. Often it was because I forgot the names of functions and other code snippets (rookie mistake, a lesson learned the hard way!). Thankfully, I was able to use AI in the Visual Studio Code application and Chat GPT to redo the views to finally get them to work with the rest of the app/website. When creating the checkout app I created extra fields linking with the bag app that I hadn’t originally created in the bag app. This created big problems. I had to migrate the new data/models into the database scheme which fixed this. This took a lot of work but Chat GPT walked me through this and I was able to fix this thankfully.
+
+###### Checkout app/page
+
+I also had some trouble with my checkout app to get it fully functioning by the end of the project. I had to rewrite/code the views a few times due to errors I was getting. I again used Chat GPT to find out where they were and correct them.
+Seperating the webhooks from the views.py file into its own file brought lots of little bugs, like having to update the checkout urls, importing the views and so on but thankfully these were fixed quickly and easily. I had trouble implementing stripe into this project initially, using the command stripe login command caused a ‘max attemps reached’ bug that would not allow me to login and test for webhooks but this thread on github support showed me that by using the command ‘stripe login –interactive’ with the stripe secret key I could log in to stripe to test the webhooks to see if the checkout app worked as intended.
+
+###### Heroku Deployment Database
+
+I accidentally started this project using an sql database format that was not
+compatible with Heroku. After creating the models in the apps and filling in the data for the services application, I deployed to Heroku only to be met with errors that the database was incompatible. To fix this problem I tried installing the Heroky CLI to no avail, I also tried fixing this with Heroku NPM also to no avail. At the end, I used the ‘dumpdata’ command to extract the data from the old sql database to migrate all of that data to the new database. I also received a UTF-8 error when trying to do this. Thankfully, with the help of Chat GPT I was able to amend the format to be compatible with python (UTF-8), which then transferred the data from the old database to with new database via json format. I had to try this a few times until I eventually found success.
+
+
+###### Heroku Deployment – Bugs
+
+I had many bugs and issues when trying to deploy to Heroku, I had to fix many
+different bugs in my code (particularly settings.py) to work with Heroku. One example included using .parse instead of .config for the secret key as the string was causing an error. I also forgot to add the secret key to my Heroku project. I also had to receive assistance from the Code institute tutors on 1 occasion to help me fix a bug that stumped me. I forgot to set the SECRET_KEY, DATABASE_URL, API_KEY, and STRIPE_SECRET_KEY config vars on Heroku Lots of little bugs caused a
+significant portion of my time to fix these to achieve a successful Heroku deployment for the project. This fixed the Heroku deployment error, but I was still receiving a Server error (500), after a 1 - 2 days I used Microsoft Copilot who suggested running ‘python manage.py collectstatic’ that fixed the issue thankfully. Getting a successful Heroku deployment was a huge headache but thankfully I got there in the end.
+
+##### Minor bugs
+
+I think my PC may have had an issue with the virtual environments in Visual Studio
+Code as after setting up my virtual environment on the first day, I had to redownload the packages in requirements.txt the next day. Thankfully this was a quick fix and I resolved any errors that arose when running migrations by redownloading the packages in requirements.txt.
+
+One of my classes for the services app was called ‘class’ which may have caused
+issues when running the server. To fix this I renamed it from ‘Class’ to ‘Gymclass’ which worked. I had to change this in the views, models, and other places so I used AI/Chat GPT to help me locate each area where I had to change which helped a lot.
+
+I had to rerun migrations in the services and bag apps as I had to change models
+after creating them because I forgot to add a feature. Adding the quality (default = 1) and rerunning the migrations fixed this error.
+
+For some reason my Python version changed before I first deployed the project (this could have been linked to the virtual environment issue mentioned above), resulting in a deployment error on Heroku. After realising that the Python version had changed, I changed it back to Python version 3.12.8 which fixed the error.
+
+When I tried to run server and make migrations near the start of the project I
+received an error in the terminal. This is because I had missed a comma in the
+‘installed apps’ (django.contrib.sites) in settings.py. Quickly adding the comma fixed this error.
+
+When I tried to test the allauth login/logout feature, I had trouble testing this as I was already logged in. Thankfully Microsoft copilot spotted this for me so I was able to notice and fix this as I was quite stuck, not realising I was already logged in!
+
+Like Boutique ado, I used bootstrap 4 for this project so I could use the boutique ado project as a template if I ever got stuck. I received an error in the mobile navbar expanding error when tapping the burger icon. Simply deleting that section of code and repasting it from bootstrap thankfully fixed the error.
+
+I had a wrong link in the navbar that caused an error when running the server.
+Changing the services url to {% services: service_list %} managed to fix this issue at that’s what linked with the view that was already created. I also amended the project’s URL for this.
+
+You may be able to see an excess of other files and commented out code that wasn’t
+removed until the end as I used these to test the project as I was building it. This helped to test features while being built to see if they worked properly.
+
+I forgot to link the CSS file in the project and wondered why the CSS wasn’t working. After realising the CSS link wasn’t in the base HTML file I added it in and resolved the issue.
+
+I received an error message once I added crispy forms into the login/out page as I
+forgot to download the package on Visual Studio Code. Once I downloaded the
+package because of the prompt on the terminal the issue had resolved.
+
+There was an invalid map filter on the checkout page causing an error on loading,
+removing this filter fixed the error allowing successful stripe page load.
+
+
 ### 5. Deployment
 
 This project was deployed using Heroku. Code was committed to git, and then
