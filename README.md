@@ -243,3 +243,93 @@ walkthroughs, inspiring me to come up with my own ideas for this project.
 
 I used Microsoft Copilot to autofill the services sections with snazzy names and
 descriptions for the services page, saving me a lot of time to focus elsewhere such as fixing bugs.
+
+
+### 5. Deployment
+
+This project was deployed using Heroku. Code was committed to git, and then
+pushed to GitHub, which Heroku then procured the pushed code to deploy this
+project.
+
+To deploy this project, please follow the steps below:
+
+1. Create a ‘requirement.txt’ file using the terminal command ‘ pip freeze 
+requirements.txt’.
+
+2. Create a Procfile with the terminal command ‘echo web: python app.py 
+procfile’.
+
+3. ‘git add’ and ‘git commit’ the new requirements and Procfile and then ’git push’ the project to GitHub.
+
+4. Create a new app on the Heroku website by clicking the ‘New’ button in your
+dashboard. Give it a name and set the region to Europe. (You will need to
+create a Heroku account and log in if you have not already done so).
+
+5. From the Heroku dashboard of your newly created application, click on
+‘Deploy’, ‘Deployment Method’ and select GitHub.
+
+6. Confirm the linking of the Heroku app to the correct GitHub repository.
+
+7. In the Heroku dashboard for the application, click on ‘Settings’, ‘Reveal
+Config Vars’.
+
+8. Set the following config vars:
+
+(Key – Value)
+
+Debug – False
+
+IP – 0.0.0.0
+
+MONGO_URI – mongodb+srv://:@cluster_name-
+qtxun.mongodb.net/database_name?retryWrites=true~=majority
+
+PORT – 5000
+
+SECRET_KEY – your_secret_key
+
+To get your MONGO_URI, read the MongoDB Atlas documentation on the official
+website. (Here: https://www.mongodb.com/docs/)
+
+9. In the Heroku dashboard, click ‘Deploy’.
+
+10. In the ‘Manual Deployment’ section of this page, make sure the master branch
+is selected and then click ‘Deploy Branch’.
+
+11. The site is now successfully deployed.
+
+At the moment of submitting this milestone project, the Development Branch and the
+Master Branch are identical.
+
+
+How to run this project locally in your IDE (VS Code, PyCharm etc)
+To clone this project from GitHub:
+
+1. Follow this link to the Project GitHub repository:
+
+https://github.com/MARKANTONY04/project_4
+
+2. Under the repository name, click clone or download (click the green code
+button for dropdown).
+
+3. In the clone with HTTPs section, copy the clone URL for the repository.
+
+4. In your local IDE open Git Bash
+
+5. Change the current working directory to the location where you want the
+cloned directory to be made
+
+6. Type git clone, and then paste the URL you copied in step 3
+
+7. Press enter, your local clone will be created
+
+You will need a GitHub account and the chrome browser for this.
+
+Here is the GitHub guide for cloning repositories:
+
+https://pages.github.com/
+
+This project was deployed early in development as per good software development
+practice to help spot bugs as they appeared on a real website and not just a
+developer environment. Overall, the deployment of this website was a smooth
+experience, with no issues flagging up as a result.
