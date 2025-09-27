@@ -202,3 +202,44 @@ ran out of time focusing on other areas of the project and had to leave it out a
 Adding images to the site to display the Gym would have been useful but I had
 unfortunately run out of time, this does not detract from the site however.
 Ideally, this would have been a great addition to the site, enhancing its usability even further. However, the lack of these features do not detract anything from the site as the purpose of this site is to display the Tony’s Gym and allow users to make a purchase, therefore it’s purpose overall is fully met.
+
+
+### 3. Technologies Used
+
+For the creation of this website many technologies were used and utilised to bring
+about the end result. First of all was Git hub, the site you are probably using to view this project and README.md. The code and supporting documents were written and added to Git hub, then committed with a commit message, and then finally pushed.
+
+The project/issues section was also utilised to arrange the user stories to monitor progress and provide insight and information on what to do next. Markup language has also been used to write up this README.md file.
+
+Drawn out Wireframes were also used as previously seen, as well as jotting down
+useful points in the early stages of this project. Though the end result is a little different to what was originally conceptualised, these provided a useful instruction to begin constructing the page structure.
+
+An instrumental tool that was used in this project was Bootstrap Version 4. The
+navbar, and buttons, were all used from bootstrap. This allowed a more efficient
+development time as I was able to copy the code from the website and implement it
+into the html files and spend more time fixing bugs. Therefore, I would like to
+personally thank Bootstrap for its free services, allowing me to use its code for my project.
+
+Developer Tools on Google Chrome was also a useful tool that was used in the
+creation on this website. It was instrumental in getting the website to be fully
+responsive, as using it I could locate where bugs were causing issues and what the
+bugs were, and allowed me to test to see if the site fitted correctly onto each screen size with its responsive design feature. As of writing this I have yet to test the website with lighthouse, however the lighthouse tool in Google Chrome dev kit will be used to test this website in the next section of this README.md.
+
+Django, Python, JavaScript, HTML5, and CSS3 were all used to code, and therefore
+create this website. Emmet abbreviation from GitHub to code in this was a very
+useful feature, as this assisted me in coding, decreasing the time spent to write out full blocks of code, allowing me to focus my attention elsewhere. Emmet
+abbreviation, along with GitHub copilot helped me some write large sections of code quickly as noted in the code files. Stripe was also used in this project to manage payments in the checkout section.
+
+The web deployment site Heroku was also used in the creation of this project, where I was able to successfully deploy this project to the web. More info on deployment and cloning below in section 5 of this README.md. 
+
+I would also like to thank Code Institute for teaching me on how to code in Django
+and Python, and on how to use many of the tools listed above. There work on
+previous projects has helped me carve out ideas for myself and use them in the
+creation of this website, and as already noted.
+
+Chat GPT also assisted me in fixing some of the bugs that are noted down in the
+next section. Furthermore the code institute's tutoring service also assisted in solving bugs. Code institute's Django Blog and Boutique ado projects were useful
+walkthroughs, inspiring me to come up with my own ideas for this project.
+
+I used Microsoft Copilot to autofill the services sections with snazzy names and
+descriptions for the services page, saving me a lot of time to focus elsewhere such as fixing bugs.
