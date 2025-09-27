@@ -68,7 +68,7 @@ The purpose of this project was to create a fictitious gym website to demonstrat
 
 
 
-#### 1. UX
+### 1. UX
 
 ##### Project Goals
 
@@ -147,7 +147,7 @@ the address on the website with a google maps map showing the location.
 As a gym enthusiast, I want to see pictures of this gym so I can know if it’s
 facilities suit me.
 
-#### Wireframes
+##### Wireframes
 
 Wireframes were used in the preparation of this project to help create the layout of the website that acted as a guide once I had commenced coding. These wireframes
 were created in the inception phase of this project, as I was planning out ideas. They are seen here and include the home, bag, services, and checkout pages on mobile and desktop:
@@ -169,3 +169,36 @@ a
 This section was written before and in the early stages of this project in a Microsoft Word document and copy and pasted into the read me near the end of the project.
 
 
+### 2. Features
+
+##### Existing Features
+
+At the conclusion of this project, this website is fully functioning and has all of the necessary features that a fully functioning gym website would need, and the features that were set out in the user stories section.
+
+This website is fully responsive, and designed to look good regardless of what
+screen size is being used. A mobile-first approach was used when designing this website as this is the most popular device size that is currently used when surfing the internet and browsing websites, and screen size was upscaled from there and designed in a way that would make it look good on larger screens with the use of bootstrap’s column function. The site looks good on any device, with content shifting to appropriate locations on the screen as the screen size changes, providing a great user experience.
+
+This website is easy to navigate, as it is constructed in a way that users would
+expect. There is a navbar at the top with working links to each of the page’s users may wish to visit, reinforcing a sense of familiarity and adding an expected page structure that users expect, making it familiar and easy to navigate. The main content in the page is arranged in a way that makes sense and allows easy manoeuvring. Buttons have also been placed on all pages, prompting users to move throughout the website and order the service they desire, that request then moves to the bag, which in turn moves the user to the checkout, which then confirms their order. Prices and descriptions are provided for service items, encouraging users to purchase a service this establishment offers.
+
+The title of the gym is in the navbar that displays the business' name, sat in a clean and professional white emphasising the dedication and professionalism of this gym, and it is located at the top of the page regardless of screen size for all users to see.
+
+Furthermore, there is a welcome message on the home page to greet the user as
+they enter the site, explaining the purpose of the site and how it can be used to
+benefit them and meet any potential user needs.
+
+This gym website is user friendly, allowing users read the home page to get a sense of the website’s purpose, naturally taking them to the services page to gain an interest in purchasing the gym’s services as they see the services on offer that can benefit their lives. This carries them along to the bag page where users view their order and then proceed to checkout to complete this order, which will be confirmed by the purchase success page, providing them with their purchase details. A button then invites them to return home where they can navigate back to the home page of the website, allowing users to make another purchase if they wish.
+
+There is a footer on the page that contains the site owner's contact information. It contains an email address, allowing anyone to easily contact the site owner for any requests, and it also contains social media links linking users to the site's social media pages to follow for any future updates to the site. There is also a google maps map to display the location of the gym if they wish to visit in person.
+
+##### Features left to implement
+
+Due to time constraints, there is a certain could-have priority level features in the user stories section that was unable to be implemented into the project. Though unfortunate, this is not a significant issue as the priority and usefulness of these features was low and the website is still fully functioning and finished without them.
+
+As the time is now over to work on this project, I would have liked to implement a
+merge bag feature when a guest would log in and become a user but unfortunately I
+ran out of time focusing on other areas of the project and had to leave it out as a result. It is a shame as the feature is almost complete as you can see in the bag app, this will be something to come back to and finish.
+
+Adding images to the site to display the Gym would have been useful but I had
+unfortunately run out of time, this does not detract from the site however.
+Ideally, this would have been a great addition to the site, enhancing its usability even further. However, the lack of these features do not detract anything from the site as the purpose of this site is to display the Tony’s Gym and allow users to make a purchase, therefore it’s purpose overall is fully met.
