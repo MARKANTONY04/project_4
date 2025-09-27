@@ -374,6 +374,34 @@ Accessability scored a high score of 89, a suggestion was made to add an aria la
 Best practice scored a high score of 96. The suggestion was to fix an image that wasn't loading properly. I decided to remove this image from the site as it was unecessary. This is a high score showing this site follows all web development best practices.
 
 
+#### Story Testing
+
+This section will look back onto the user stories to show how the end result has met the 'must-have' and 'should-have' user stories criteria.
+
+Page Layout - This user story has been fully met as the site is responsive and traditionally structured, allowing a familiar layout that any user can appreciate. With a navbar at the top of the page guiding users through the site and helping them navigate to a page they want. The content of the page is well structured regardless of the screen size of user devices, and there is a footer at the bottom of the page to prompt contact if required.
+
+Extensive services - This user story has been met as there is a page dedicated to displaying the vast variety of services this establishment has on offer for users.
+
+Add to bag - This has been met as a dedicated bag app/page allows user to add services to a bag to purchase.
+
+Edit bag - Met as users can edit quantities and remove items completely from their bag
+
+Checkout - Checkout app and page allowing users to purchase services with a confiormation page means this story is fully met
+
+Home page - Dedicated home page on site start up showing purpose of site to users means this user story has been fully met.
+
+Contact details - Footer on every page displays various contact details to all users proving this has been met.
+
+Location - Map in the footer shows gym location to all users meaning this has been met.
+
+Pictures - This has not been met as there are no pictures on the site. However, this is only a 'could have' feature and does not detract from the value of the site in any way as users can quickly understand the purpose of the site, easily navigate through it to view services, edit in the bag, and make a purchase in the checkout. Fully fledged titles and descriptions about the gym and it's services provide users with the information they need.
+
+All of this shows that the necessary user stories have been met for this project. 
+
+Here is a link to the user stories section if you wish to visit it for yourself:
+
+https://github.com/MARKANTONY04/project_4/issues
+
 
 
 ### 5. Deployment
