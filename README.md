@@ -529,9 +529,10 @@ Code institute as a template for this README.md. Like all good software develope
 I would like to thank W3 as I learned some of the CSS I used for this project,
 underline text in particular.
 
+Also I’d again like to thank chat GPT who helped me create this project. I live a busy life with a full time job and personal commitments, the time I have available to work on this can sometimes be limited so utilising AI in the age of AI was a smart way to help me get this project done on time. You can see on some of the templates and views in this project I used Chat GPT to fix major issues by rewriting code with errors (in the views), and also save time by generating some of the tables and other featutres in the tamplates (emoji's, the iframe map, the checkout and bag javascript in the script tags etc). It saved me time as it would have taken far longer if I had to do these myself, and am thankful for the time save it gave me.
+
 Last, and certainly not least I would like to once again thank Code Institute. I havelearned backend end software/web development with Django in a matter of weeks
 thank to them and would not have been able to create this project without them.
 Furthermore, the walkthrough projects (Boutique Ado inspired this project’s base
 template as you can probably see) throughout this module culminating in this project have been particularly useful. I would not be here without the teaching I have received from Code institute, and hope this project shows the skills I have learned,and now have been able to implement. 
 
-Also I’d again like to thank chat GPT who helped me create some templates noted and to rewrite some views in the bag and checkout app to fix bugs.
