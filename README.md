@@ -422,6 +422,8 @@ This section will document the testing the website will undergo to ensure everyt
 | User clicks back arrow on stripe purchase checkout page  | Order cancelled page shows directing user back to site | Pass|
 | Users can purchase items without account | Purchases are registered and payment is confirmed | Pass|
 | Users can purchase items with account | Purchases are registered and payment is confirmed | Pass|
+| Users confirm purchase at checkout | Item is removed from bag | Pass|
+| Users confirm purchase at checkout | Purchase is registered on Sripe | Pass|
 | Deploy in Heroku | Successful deployment shows everything working as it should like local environment| Pass|
 
 
