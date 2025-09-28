@@ -403,6 +403,28 @@ Here is a link to the user stories section if you wish to visit it for yourself:
 https://github.com/MARKANTONY04/project_4/issues
 
 
+#### Functionality Testing
+
+This section will document the testing the website will undergo to ensure everything about the website is working as it should be. A table is below noting the action to test, the expected behaviour, and whether or not it passes or fails.
+
+| Action        | Expected behaviour  | Pass/Fail|
+| ------------- |:-------------:| -----:|
+| Click all navbar items on every page to test if the links work | Navbar link takes you to expected page | Pass |
+| Click on the navigation buttons on each page of the site that takes you to the expected page/ location| Button links takes you to expected page | Pass|
+| Clicking on each services 'add to bag' item add's it to bag  | Clicked on item is added to bag| Pass|
+| User is able to edit bag by increasing, decreasing, and removing items from bag with appropriate buttons.  | Increase, decrease, and remove buttons perform appropriate actions | Pass|
+| Clicking on 'back to top button' (bottom right) | Takes you back to the top of the page | Pass|
+| All fields on the registarion form filled| User is required to verify email | Pass|
+| User verifies email on account creation| User account is created and taken back to site | Pass|
+| One or more field(s) on the registarion form not filled| Warning is given to fields not filled | Pass|
+| Stripe purchase checkout form filled in | Order confirmation screen is shown| Pass|
+| Stripe purchase checkout form not fully filled in | Error displays asking to fill in field(s) | Pass|
+| User clicks back arrow on stripe purchase checkout page  | Order cancelled page shows directing user back to site | Pass|
+| Users can purchase items without account | Purchases are registered and payment is confirmed | Pass|
+| Users can purchase items with account | Purchases are registered and payment is confirmed | Pass|
+| Deploy in Heroku | Successful deployment shows everything working as it should like local environment| Pass|
+
+
 
 ### 5. Deployment
 
