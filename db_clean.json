@@ -1,3 +1,5 @@
+// json file used to migrate data from old database to new
+
 [
 {
   "model": "auth.user",

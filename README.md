@@ -203,6 +203,8 @@ Adding images to the site to display the Gym would have been useful but I had
 unfortunately run out of time, this does not detract from the site however.
 Ideally, this would have been a great addition to the site, enhancing its usability even further. However, the lack of these features do not detract anything from the site as the purpose of this site is to display the Tony’s Gym and allow users to make a purchase, therefore it’s purpose overall is fully met.
 
+Users are able to register an account and login, which oprovides users a benefit as it remembers the items they have added to basket and that they are then ready for purchase via the checkout.
+
 
 ### 3. Technologies Used
 
@@ -346,9 +348,13 @@ All Python and Django code was written using the pep8 guidelines.
 
 ##### Javascript
 
-I tested my javascript with JSHint which is lined below. As seen by the screenshit there were no warnings thankfully, meaning nothing had to be changed as everything passed and is working as intended.
+I tested my javascript with JSHint which is lined below. As seen by the screenshots there were no warnings thankfully, meaning nothing had to be changed as everything passed and is working as intended.
 
 ![javescript validator pass](README.md-media/imagejs.png)
+
+![javascript validator pass 2](README.md-media/imagejs2.png)
+
+![javascript validator pass 3](README.md-media/imagejs3.png)
 
 https://jshint.com/
 
