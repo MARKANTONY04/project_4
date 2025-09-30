@@ -108,7 +108,7 @@
   color: #fff;
 }
 
-/* Additional Footer CSS */
+/* Additional Footer CSS made with CHAT GPT */
 
 .footer {
   font-size: 0.9rem;
@@ -141,9 +141,6 @@
 
 /* General Improvements */
 body {
-  background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #444;
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
 }
@@ -177,10 +174,6 @@ ul li {
   margin-bottom: 0.5rem;
 }
 
-.images {
-    margin: auto;
-}
-
 
 /* Back to top button by Chat GPT */
 
@@ -211,7 +204,11 @@ ul li {
   background-color: #0056b3;
 }
 
-
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
