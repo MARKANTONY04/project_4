@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'services',
     'bag.apps.BagConfig',
     'checkout',
+    'accounts',
 
 ]
 
