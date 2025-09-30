@@ -35,7 +35,7 @@ The purpose of this project was to create a fictitious gym website to demonstrat
 
 •	Chrome Dev Tools
 
-•	Stripe, Amazon Web Services (AWS), Python, Django, JavaScript, HTML5, & CSS3
+•	Stripe, Python, Django, JavaScript, HTML5, & CSS3
 
 •	Visual Studio Code
 
@@ -78,15 +78,12 @@ The goal of this project was to create a full stack gym website with payment met
 
 ##### Developer and Business Goals
 
-The business/developer goal of this gym website is to increase sales for their gym business. By creating a website for the gym, this would advertise the gym on the internet to help gain traction to increase sales. Furthermore, describing the equipment available with costs and descriptions of all the services on offer will help to gain traction within the community, persuading people to exercise in this establishment to create a successful business by allowing people to purchase gym subscriptions online.
+The business/developer goal of this gym website is to increase sales for their gym business. By creating a website for the gym, this would advertise the gym on the internet to help gain traction to increase sales. Furthermore, describing the services available with costs and descriptions of all the services on offer will help to gain traction within the community, persuading people to exercise in this establishment to create a successful business by allowing people to purchase gym subscriptions and other services online.
 
 
 #### User Goals
 
-The user goal for this site is to have a clear purpose for the site, see what gym
-services they have available with appropriate descriptions. Users will also want to purchase different services from the gym, including monthly gym subscriptions,
-along with other services including meal plans and classes. Easy navigation, along
-with good UX principles are also required to provide a great user experience for the site’s users.
+The user goal for this site is to have a clear purpose for the site, and see what gym services they have available with appropriate descriptions. Users will also want to purchase different services from the gym, including monthly gym subscriptions, along with other services including meal plans and classes. Easy navigation, along with good UX principles are also required to provide a great user experience for the site’s users.
 
 #### User Stories
 
@@ -100,7 +97,7 @@ However, here is a summary of them below (in no particular order):
 
 As someone who is unfamiliar with technology, computers, and the internet, I want
 the page format to be in a standard page layout that includes a navbar, body, and
-footer on each page that will allow me to easily be able to navigate this website.
+footer on each page that will allow me to easily navigate this website.
 
 2. Extensive Services
 
@@ -114,11 +111,11 @@ As an avid shopper, I want to be able to shop on the go add purchases that I thi
 
 4. Edit bag feature
 
-As an excited shopper, I want to be able to edit, add and remove the purchases I add to my bag as I often add things I don’t need and want to increase the quantity of items I purchase, as well as the total cost.
+As an excited shopper, I want to be able to edit, add and remove the purchases I add to my bag as I often add things I don’t need, and sometimes, I want to increase the quantity of items I purchase, as well as being able to view the total cost.
 
 5. Checkout feature
 
-As an avid online shopper, I want a fully functioning checkout system, displaying the items I’ve places in my bag, allowing me to edit my order and display the total cost.
+As an avid online shopper, I want a fully functioning checkout system, allowing me to purchase my order and display my order upon checkout completion.
 
 6. Services information
 
@@ -162,7 +159,6 @@ a
 
 ![wireframe image](README.md-media/1000003420.jpg)
 
-a
 
 ![wireframe image](README.md-media/1000003421.jpg)
 
@@ -195,7 +191,7 @@ Users can create an account and add their name to the site to make it more inter
 
 ##### Features left to implement
 
-Due to time constraints, there is a certain could-have priority level features in the user stories section that was unable to be implemented into the project. Though unfortunate, this is not a significant issue as the priority and usefulness of these features was low and the website is still fully functioning and finished without them.
+Due to time constraints, there is a certain could-have priority level features in the user stories section that was unable to be implemented into the project (Pictures). Though unfortunate, this is not a significant issue as the priority and usefulness of these features was low and the website is still fully functioning and finished without them.
 
 As the time is now over to work on this project, I would have liked to implement a
 merge bag feature when a guest would log in and become a user but unfortunately I
@@ -222,7 +218,7 @@ An instrumental tool that was used in this project was Bootstrap Version 4. The
 navbar, and buttons, were all used from bootstrap. This allowed a more efficient
 development time as I was able to copy the code from the website and implement it
 into the html files and spend more time fixing bugs. Therefore, I would like to
-personally thank Bootstrap for its free services, allowing me to use its code for my project.
+personally thank Bootstrap for its free services, allowing me to use its code for my project. I used bootstrap 4 instaed of 5 to follow the code institute 'Boutique ado' project for the page setup, it was a helpful referenece that gave me ideas for this project.
 
 Developer Tools on Google Chrome was also a useful tool that was used in the
 creation on this website. It was instrumental in getting the website to be fully
@@ -231,13 +227,12 @@ bugs were, and allowed me to test to see if the site fitted correctly onto each 
 
 Django, Python, JavaScript, HTML5, and CSS3 were all used to code, and therefore
 create this website. Emmet abbreviation from GitHub to code in this was a very
-useful feature, as this assisted me in coding, decreasing the time spent to write out full blocks of code, allowing me to focus my attention elsewhere. Emmet
-abbreviation, along with GitHub copilot helped me some write large sections of code quickly as noted in the code files. Stripe was also used in this project to manage payments in the checkout section.
+useful feature, as this assisted me in coding, decreasing the time spent to write out full blocks of code, allowing me to focus my attention elsewhere. Stripe was also used in this project to manage payments in the checkout section.
 
 The web deployment site Heroku was also used in the creation of this project, where I was able to successfully deploy this project to the web. More info on deployment and cloning below in section 5 of this README.md. 
 
 I would also like to thank Code Institute for teaching me on how to code in Django
-and Python, and on how to use many of the tools listed above. There work on
+and Python, and on how to use many of the tools listed above. Their work on
 previous projects has helped me carve out ideas for myself and use them in the
 creation of this website, and as already noted.
 
@@ -266,7 +261,13 @@ I had originally planned to have a ‘merge bag’ feature on login, where the u
 ###### Checkout app/page
 
 I also had some trouble with my checkout app to get it fully functioning by the end of the project. I had to rewrite/code the views a few times due to errors I was getting. I again used Chat GPT to find out where they were and correct them.
-Seperating the webhooks from the views.py file into its own file brought lots of little bugs, like having to update the checkout urls, importing the views and so on but thankfully these were fixed quickly and easily. I had trouble implementing stripe into this project initially, using the command stripe login command caused a ‘max attemps reached’ bug that would not allow me to login and test for webhooks but this thread on github support showed me that by using the command ‘stripe login –interactive’ with the stripe secret key I could log in to stripe to test the webhooks to see if the checkout app worked as intended.
+Seperating the webhooks from the views.py file into its own file brought lots of little bugs, like having to update the checkout urls, importing the views and so on but thankfully these were fixed quickly and easily. I had trouble implementing stripe into this project initially, using the command stripe login command caused a ‘max attemps reached’ bug that would not allow me to login and test for webhooks but this thread on github support showed me that by using the command ‘stripe login –interactive’ with the stripe secret key I could log in to stripe to test the webhooks to see if the checkout app worked as intended. The fix i used is seen below.
+
+
+![stripe connection fix](README.md-media/imagegh.png)
+
+
+https://github.com/stripe/stripe-cli/issues/209
 
 ###### Heroku Deployment Database
 
@@ -277,7 +278,7 @@ compatible with Heroku. After creating the models in the apps and filling in the
 ###### Heroku Deployment – Bugs
 
 I had many bugs and issues when trying to deploy to Heroku, I had to fix many
-different bugs in my code (particularly settings.py) to work with Heroku. One example included using .parse instead of .config for the secret key as the string was causing an error. I also forgot to add the secret key to my Heroku project. I also had to receive assistance from the Code institute tutors on 1 occasion to help me fix a bug that stumped me. I forgot to set the SECRET_KEY, DATABASE_URL, API_KEY, and STRIPE_SECRET_KEY config vars on Heroku Lots of little bugs caused a
+different bugs in my code (particularly settings.py) to work with Heroku. One example included using .parse instead of .config for the secret key as the string was causing an error. I also forgot to add the secret key to my Heroku project. I also had to receive assistance from the Code institute tutors on 1 occasion to help me fix a bug that stumped me. I forgot to set the SECRET_KEY, DATABASE_URL, API_KEY, and STRIPE_SECRET_KEY config vars on Heroku. Lots of little bugs caused a
 significant portion of my time to fix these to achieve a successful Heroku deployment for the project. This fixed the Heroku deployment error, but I was still receiving a Server error (500), after a 1 - 2 days I used Microsoft Copilot who suggested running ‘python manage.py collectstatic’ that fixed the issue thankfully. Getting a successful Heroku deployment was a huge headache but thankfully I got there in the end.
 
 ##### Minor bugs
@@ -318,11 +319,11 @@ removing this filter fixed the error allowing successful stripe page load.
 
 ##### Unfixed bugs
 
-I removed the images from my project at the end because I didn't feel the need for them anymore. Because of this, I tried centering the 'why choose us' section on the home page but couldn't get it to work despite using the correct flex code in CSS. If I had more time to debug I would have but have now come to the end of my project's time limit and will leave it for the future.
+I removed the images from my project at the end because I didn't feel the need for them anymore. Because of this, I tried centering the 'why choose us' section on the home page but couldn't get it to work despite using the correct flex code in CSS. If I had more time to debug I would have but now I've come to the end of my project's time limit and will leave it for the future.
 
 It seems like my favicons are sometimes working but sometimes are not, if I had more time I would have explored this issue to work on a fix but the time has ended for working on this project. I will look at fixing this in the future.
 
-I also had a minor layour issue on the home page where the page is larger than the screen, like the first unfinished bug, I tried fixing this but couldn't meaning I'll unfortunately have to leave it. I'll take a look for a fix in the future.
+I also had a minor layout issue on the home page where the page is larger than the screen, like the first unfinished bug, I tried fixing this but couldn't meaning I'll unfortunately have to leave it. I'll take a look for a fix in the future.
 
 
 #### Code Testing
@@ -331,7 +332,7 @@ Testing is an important part of any project, especially in software development 
 
 ##### HTML
 
-All the HTML code passed through the industry recognised W3 Validator (linked below). Due to using Django, some errors popped up when testing my code with the validator as seen below as the validator is not used to Django template code (url links etc). Therefore I removed all incompatible code with the validator and thankfully the code was tested and passed through the validator as seen below demonstrating that this project has met the HTML requirements as seen below.
+All the HTML code passed through the industry recognised W3 Validator (linked below). Due to using Django, some errors popped up when testing my code with the validator as seen below as the validator is not used to Django template code (url links etc). Therefore I removed all incompatible code with the validator and thankfully the code was tested and passed through the validator as seen below demonstrating that this project has met the HTML requirements as seen below. The html code added at the end of the project / before submission also meets the criteria.
 
 Also, the iframe element had a width = '100%', an incompatible value therefore I added the width = 100% class to css and gave it the class '.iframe'
 
@@ -339,7 +340,7 @@ Also, the iframe element had a width = '100%', an incompatible value therefore I
 
 ![validator pass html](README.md-media/image.png)
 
-This was the base template, the other pages were checked and alos passed. Here is a link to the validator:
+This was the base template, the other pages were checked and also passed. Here is a link to the validator:
 
 https://validator.w3.org/
 
@@ -372,13 +373,11 @@ https://jshint.com/
 
 Using Chrome Dev Tools, I was able to use the Lighthouse tool to test the reliability and functionality of the website from a user end point of view. I decided to use incognito mode to run the test as this blocks web extensions that can falsely hinder results. After first running the test, here are the results I received:
 
-![lighthouse report](README.md-media/imagelighthouse.png)
-
 Overall great results. All are in the high 80's or 90's
 
 ![Font and bootstrap lowering performace on lighthouse](README.md-media/imagep.png)
 
-This image shows that bootstrap and the font i'm using is dectrasing the perfrmance to a score of 85/100. As this is a high score I will keep bootstrap as it's findamntal to the fromt end and I'll keep the font as it's bold style suits the site well and the imapct of these is minimal as the score is still high.
+This image shows that bootstrap and the font i'm using is dectrasing the perfrmance to a score of 85/100. As this is a high score I will keep bootstrap as it's fundamntal to the front end and I'll keep the font as it's bold style suits the site well and the imapct of these is minimal as the score is still high.
 
 ![lighthouse accessability issue](README.md-media/imagela.png)
 
@@ -440,6 +439,7 @@ This section will document the testing the website will undergo to ensure everyt
 | Users can purchase items with account | Purchases are registered and payment is confirmed | Pass|
 | Users confirm purchase at checkout | Item is removed from bag | Pass|
 | Users confirm purchase at checkout | Purchase is registered on Sripe | Pass|
+| User logs out of account | Item in bag remains next log in | Pass|
 | Deploy in Heroku | Successful deployment shows everything working as it should like local environment| Pass|
 
 
@@ -531,7 +531,7 @@ https://pages.github.com/
 This project was deployed early in development as per good software development
 practice to help spot bugs as they appeared on a real website and not just a
 developer environment. Overall, the deployment of this website was a smooth
-experience, with no issues flagging up as a result.
+experience, with no issues flagging up as a result after all bugs were fixed.
 
 
 
@@ -547,9 +547,9 @@ Code institute as a template for this README.md. Like all good software develope
 I would like to thank W3 as I learned some of the CSS I used for this project,
 underline text in particular.
 
-Also I’d again like to thank chat GPT who helped me create this project. I live a busy life with a full time job and personal commitments, the time I have available to work on this can sometimes be limited so utilising AI in the age of AI was a smart way to help me get this project done on time. You can see on some of the templates and views in this project I used Chat GPT to fix major issues by rewriting code with errors (in the views), and also save time by generating some of the tables and other featutres in the tamplates (emoji's, the iframe map, the checkout and bag javascript in the script tags etc). It saved me time as it would have taken far longer if I had to do these myself, and am thankful for the time save it gave me.
+Also I’d again like to thank chat GPT who helped me create this project. I live a busy life with a full time job and personal commitments, the time I have available to work on this can sometimes be limited so utilising AI in the age of AI was a smart way to help me get this project done on time. You can see on some of the templates and views in this project I used Chat GPT to fix major issues by rewriting the code with errors (in the views), and also save time by generating some of the tables and other featutres in the tamplates (emoji's, the iframe map, the checkout and bag javascript in the script tags etc). It saved me time as it would have taken far longer if I had to do these myself, and am thankful for the time save it gave me.
 
-Last, and certainly not least I would like to once again thank Code Institute. I havelearned backend end software/web development with Django in a matter of weeks
+Last, and certainly not least I would like to once again thank Code Institute. I have learned backend end software/web development with Django in a matter of weeks
 thank to them and would not have been able to create this project without them.
 Furthermore, the walkthrough projects (Boutique Ado inspired this project’s base
 template as you can probably see) throughout this module culminating in this project have been particularly useful. I would not be here without the teaching I have received from Code institute, and hope this project shows the skills I have learned,and now have been able to implement. 
@@ -560,7 +560,9 @@ template as you can probably see) throughout this module culminating in this pro
 
 I have completed my final project with code institute and am grateful for this course. I have learned web/software development over the last 12 months and will now begin to seek a career in this impactful industry. I have come a long way since I knew basically nothing about software development before I started but have now personally crafted 4 projects displaying the technology, practices, and principles I've learned. Though not perfect, I am proud of the projects I have completed and now await my grade for this course. 
 
-I would like to once again thank code institute for this course, it is a great course friendly for beginners.I would also like to thank my mentor for helping me construct my project and provide helpful guidance arount the industry. AI has also helped me answer questions, auto fill description sections, and even written small snippets of code that has been very helpful. I thought I'd give it a shot now as AI is already transforming how we build software. 
+I checked the marking/assessment criteria a day before submitting this project, and realised I didn't have a 'user interactive' feature on this site and is why I created the 'account' app last minute to meet this criteria, as users can modify the back end to change their name if they wish (to a nickname etc) to the welcome/home screen.
+
+I would like to once again thank code institute for this course, it is a great course friendly for beginners.I would also like to thank my mentor for helping me construct my projects and provide helpful guidance for this industry. AI has also helped me answer questions, auto fill description sections, and even written small snippets of code that has been very helpful. I thought I'd give it a shot now as AI is already transforming how we build software, and is already transforming the way software developers work.
 
 This final project is the culmination of everything I've learned over the past 12 months and I hope it shows that. Though some minor bugs remain like the home postioning on desktop, it is now finished and I believe meets all of the assessment criteria. Stripe payments work, users can choose what services they'd like to purchase, and create an account to keep their bag items saved, while updating their name for a more personal touch if they wish. There have been difficulties but I am thankful that I have prevailed, and believe I will graduate this diploma and enter the software development industry. 
 
