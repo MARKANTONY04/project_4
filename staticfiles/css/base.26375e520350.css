@@ -204,6 +204,13 @@ ul li {
   background-color: #0056b3;
 }
 
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 /* Media Queries - Used in previous Boutique Ado project with code institute */
 

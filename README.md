@@ -191,6 +191,8 @@ This gym website is user friendly, allowing users read the home page to get a se
 
 There is a footer on the page that contains the site owner's contact information. It contains an email address, allowing anyone to easily contact the site owner for any requests, and it also contains social media links linking users to the site's social media pages to follow for any future updates to the site. There is also a google maps map to display the location of the gym if they wish to visit in person.
 
+Users can create an account and add their name to the site to make it more interactive, and leaving users with a personnal touch.
+
 ##### Features left to implement
 
 Due to time constraints, there is a certain could-have priority level features in the user stories section that was unable to be implemented into the project. Though unfortunate, this is not a significant issue as the priority and usefulness of these features was low and the website is still fully functioning and finished without them.
@@ -313,6 +315,14 @@ package because of the prompt on the terminal the issue had resolved.
 
 There was an invalid map filter on the checkout page causing an error on loading,
 removing this filter fixed the error allowing successful stripe page load.
+
+##### Unfixed bugs
+
+I removed the images from my project at the end because I didn't feel the need for them anymore. Because of this, I tried centering the 'why choose us' section on the home page but couldn't get it to work despite using the correct flex code in CSS. If I had more time to debug I would have but have now come to the end of my project's time limit and will leave it for the future.
+
+It seems like my favicons are sometimes working but sometimes are not, if I had more time I would have explored this issue to work on a fix but the time has ended for working on this project. I will look at fixing this in the future.
+
+I also had a minor layour issue on the home page where the page is larger than the screen, like the first unfinished bug, I tried fixing this but couldn't meaning I'll unfortunately have to leave it. I'll take a look for a fix in the future.
 
 
 #### Code Testing
@@ -544,3 +554,14 @@ thank to them and would not have been able to create this project without them.
 Furthermore, the walkthrough projects (Boutique Ado inspired this project’s base
 template as you can probably see) throughout this module culminating in this project have been particularly useful. I would not be here without the teaching I have received from Code institute, and hope this project shows the skills I have learned,and now have been able to implement. 
 
+
+
+##### Final comments
+
+I have completed my final project with code institute and am grateful for this course. I have learned web/software development over the last 12 months and will now begin to seek a career in this impactful industry. I have come a long way since I knew basically nothing about software development before I started but have now personally crafted 4 projects displaying the technology, practices, and principles I've learned. Though not perfect, I am proud of the projects I have completed and now await my grade for this course. 
+
+I would like to once again thank code institute for this course, it is a great course friendly for beginners.I would also like to thank my mentor for helping me construct my project and provide helpful guidance arount the industry. AI has also helped me answer questions, auto fill description sections, and even written small snippets of code that has been very helpful. I thought I'd give it a shot now as AI is already transforming how we build software. 
+
+This final project is the culmination of everything I've learned over the past 12 months and I hope it shows that. Though some minor bugs remain like the home postioning on desktop, it is now finished and I believe meets all of the assessment criteria. Stripe payments work, users can choose what services they'd like to purchase, and create an account to keep their bag items saved, while updating their name for a more personal touch if they wish. There have been difficulties but I am thankful that I have prevailed, and believe I will graduate this diploma and enter the software development industry. 
+
+Thank you Code Institute!
