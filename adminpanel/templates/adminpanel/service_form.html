@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Manage Subscriptions</h1>
+<a href="{% url 'admin_service_add' %}" class="btn btn-success">Add New</a>
+<hr>
+{% for s in services %}
+<div class="card p-3 mb-2">
+    <h4>{{ s.name }}</h4>
+    <p>£{{ s.price }}</p>
+    <a href="{% url 'admin_service_edit' s.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'admin_service_delete' s.id %}" class="btn btn-danger">Delete</a>
+</div>
+{% endfor %}
+{% endblock %}
