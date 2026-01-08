@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'bag.apps.BagConfig',
     'checkout',
     'accounts',
+    'adminpanel'
 
 ]
 
