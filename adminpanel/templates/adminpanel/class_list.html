@@ -1,24 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>Manage Classes</h1>
+<a href="{% url 'add_class' %}" class="btn btn-success mb-3">Add New Class</a>
 
-<h1>Manage Subscriptions</h1>
-
-<a href="{% url 'add_subscription' %}" class="btn btn-success mb-3">
-    Add New Subscription
-</a>
-
-<hr>
-
-{% for s in subscriptions %}
+{% for c in classes %}
 <div class="card p-3 mb-2">
-    <h4>{{ s.name }}</h4>
-    <p>£{{ s.price }}</p>
-
-    <a href="{% url 'edit_subscription' s.id %}" class="btn btn-primary btn-sm">Edit</a>
-    <a href="{% url 'delete_subscription' s.id %}" class="btn btn-danger btn-sm">Delete</a>
+    <h4>{{ c.name }}</h4>
+    <p>£{{ c.price }}</p>
+    <a href="{% url 'edit_class' c.id %}" class="btn btn-primary btn-sm">Edit</a>
+    <a href="{% url 'delete_class' c.id %}" class="btn btn-danger btn-sm">Delete</a>
 </div>
-{% empty %}
-<p>No subscriptions created yet.</p>
 {% endfor %}
-
 {% endblock %}
+

@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Manage Nutrition Guides</h1>
-
 <a href="{% url 'add_guide' %}" class="btn btn-success mb-3">Add New Guide</a>
-<hr>
 
 {% for g in guides %}
 <div class="card p-3 mb-2">
     <h4>{{ g.title }}</h4>
     <p>£{{ g.price }}</p>
-
     <a href="{% url 'edit_guide' g.id %}" class="btn btn-primary btn-sm">Edit</a>
     <a href="{% url 'delete_guide' g.id %}" class="btn btn-danger btn-sm">Delete</a>
 </div>
-{% empty %}
-<p>No guides created yet.</p>
 {% endfor %}
 {% endblock %}
