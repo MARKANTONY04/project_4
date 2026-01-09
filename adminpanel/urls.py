@@ -4,6 +4,12 @@ from . import views
 urlpatterns = [
     path("", views.admin_dashboard, name="admin_dashboard"),
 
+    # LIST PAGES
+    path("subscriptions/", views.subscription_list, name="admin_service_list"),
+    path("classes/", views.class_list, name="admin_class_list"),
+    path("guides/", views.guide_list, name="admin_guide_list"),
+
+    # CREATE / UPDATE / DELETE
     path("subscription/add/", views.add_subscription, name="add_subscription"),
     path("subscription/edit/<int:pk>/", views.edit_subscription, name="edit_subscription"),
     path("subscription/delete/<int:pk>/", views.delete_subscription, name="delete_subscription"),

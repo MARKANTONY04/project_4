@@ -2,7 +2,28 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, redirect, get_object_or_404
 from services.models import GymSubscription, FitnessClass, NutritionGuide
 from .forms import GymSubscriptionForm, FitnessClassForm, NutritionGuideForm
+from django.contrib.auth.decorators import user_passes_test
 
+def staff_check(user):
+    return user.is_staff
+
+
+@user_passes_test(staff_check)
+def subscription_list(request):
+    subscriptions = GymSubscription.objects.all()
+    return render(request, "adminpanel/service_list.html", {"subscriptions": subscriptions})
+
+
+@user_passes_test(staff_check)
+def class_list(request):
+    classes = FitnessClass.objects.all()
+    return render(request, "adminpanel/class_list.html", {"classes": classes})
+
+
+@user_passes_test(staff_check)
+def guide_list(request):
+    guides = NutritionGuide.objects.all()
+    return render(request, "adminpanel/guide_list.html", {"guides": guides})
 
 @staff_member_required
 def admin_dashboard(request):
