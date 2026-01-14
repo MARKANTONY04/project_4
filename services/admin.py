@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import GymSubscription, FitnessClass, NutritionGuide  # ✅ use FitnessClass
+from .models import GymSubscription, FitnessClass, NutritionGuide
 
 
 @admin.register(GymSubscription)

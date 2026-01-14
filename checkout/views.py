@@ -20,9 +20,11 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def _get_bag_items_for_checkout(request):
     """
-    Return a list of dicts: {product, item_type, id, quantity, unit_price, display_name}
+    Return a list of dicts:
+    {product, item_type, id, quantity, unit_price, display_name}
     Works for logged-in (SavedBagItem) and guest (session).
     """
+
     items = []
 
     if request.user.is_authenticated:
@@ -141,7 +143,8 @@ def success(request):
     if session_id:
         order = get_object_or_404(Order, stripe_session_id=session_id)
 
-    total_paid = sum(item.line_total for item in order.lineitems.all())
+    line_items = order.lineitems.all()
+    total_paid = sum(item.line_total for item in line_items)
 
     if "bag" in request.session:
         del request.session["bag"]
