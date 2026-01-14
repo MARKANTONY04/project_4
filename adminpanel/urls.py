@@ -12,8 +12,14 @@ urlpatterns = [
 
     # Subscriptions
     path("subscription/add/", views.add_subscription, name="add_subscription"),
-    path("subscription/edit/<int:pk>/", views.edit_subscription, name="edit_subscription"),
-    path("subscription/delete/<int:pk>/", views.delete_subscription, name="delete_subscription"),
+    path(
+        "subscription/edit/<int:pk>/",
+        views.edit_subscription,
+        name="edit_subscription"),
+    path(
+        "subscription/delete/<int:pk>/",
+        views.delete_subscription,
+        name="delete_subscription"),
 
     # Classes
     path("class/add/", views.add_class, name="add_class"),

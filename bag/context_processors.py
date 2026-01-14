@@ -1,6 +1,7 @@
 # bag/context_processors.py
 from .models import SavedBagItem
 
+
 def bag_contents(request):
     total_qty = 0
 

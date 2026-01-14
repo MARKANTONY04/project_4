@@ -7,7 +7,7 @@ class GymSubscriptionAdmin(admin.ModelAdmin):
     list_display = ("name", "price", "duration_months")
 
 
-@admin.register(FitnessClass)  
+@admin.register(FitnessClass)
 class FitnessClassAdmin(admin.ModelAdmin):
     list_display = ("name", "price", "schedule")
 

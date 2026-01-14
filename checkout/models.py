@@ -4,8 +4,13 @@ from django.db import models
 
 User = settings.AUTH_USER_MODEL
 
+
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
+    user = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True)
     stripe_payment_intent = models.CharField(max_length=255, blank=True)
     stripe_session_id = models.CharField(max_length=255, blank=True)
     full_name = models.CharField(max_length=255)
@@ -21,12 +26,19 @@ class Order(models.Model):
     paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Order {self.id} — {self.full_name} ({'paid' if self.paid else 'pending'})"
+        return f"Order {
+            self.id} — {
+            self.full_name} ({
+            'paid' if self.paid else 'pending'})"
 
 
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, related_name='lineitems', on_delete=models.CASCADE)
-    product_type = models.CharField(max_length=20)  # 'subscription'|'class'|'guide'
+    order = models.ForeignKey(
+        Order,
+        related_name='lineitems',
+        on_delete=models.CASCADE)
+    # 'subscription'|'class'|'guide'
+    product_type = models.CharField(max_length=20)
     product_id = models.PositiveIntegerField()
     product_name = models.CharField(max_length=255)
     quantity = models.PositiveIntegerField(default=1)

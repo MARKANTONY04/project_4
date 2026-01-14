@@ -7,7 +7,10 @@ class GymSubscriptionForm(forms.ModelForm):
         model = GymSubscription
         fields = ['name', 'price', 'duration_months', 'description']
         widgets = {
-            'description': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Enter subscription details...'}),
+            'description': forms.Textarea(
+                attrs={
+                    'rows': 3,
+                    'placeholder': 'Enter subscription details...'}),
         }
 
 
@@ -16,8 +19,13 @@ class FitnessClassForm(forms.ModelForm):
         model = FitnessClass
         fields = ['name', 'price', 'schedule', 'description']
         widgets = {
-            'schedule': forms.TextInput(attrs={'placeholder': 'E.g., Mondays at 6 PM'}),
-            'description': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Enter class details...'}),
+            'schedule': forms.TextInput(
+                attrs={
+                    'placeholder': 'E.g., Mondays at 6 PM'}),
+            'description': forms.Textarea(
+                attrs={
+                    'rows': 3,
+                    'placeholder': 'Enter class details...'}),
         }
 
 
@@ -26,6 +34,10 @@ class NutritionGuideForm(forms.ModelForm):
         model = NutritionGuide
         fields = ['title', 'price', 'content_summary']
         widgets = {
-            'content_summary': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Short summary of the guide...'}),
+            'content_summary': forms.Textarea(
+                attrs={
+                    'rows': 3,
+                    'placeholder': 'Short summary of the guide...'}),
         }
-# Note: The forms include basic widgets and placeholders for better user experience.
+# Note: The forms include basic widgets and placeholders for better user
+# experience.

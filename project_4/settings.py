@@ -17,8 +17,6 @@ if os.path.isfile('env.py'):
     import env
 
 
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,15 +30,18 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['tonys-gym-072682cf827a.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    'tonys-gym-072682cf827a.herokuapp.com',
+    '127.0.0.1',
+    'localhost']
 
-# stripe 
+# stripe
 
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
 STRIPE_CURRENCY = "gbp"
-DEFAULT_FROM_EMAIL = "yourshop@example.com" # for confimation emails
+DEFAULT_FROM_EMAIL = "yourshop@example.com"  # for confimation emails
 
 # Application definition
 
@@ -77,7 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # for static files on heroku
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # for static files on heroku
 ]
 
 ROOT_URLCONF = 'project_4.urls'
@@ -93,11 +94,11 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bag.context_processors.bag_contents', # bag context processor
-                'checkout.context_processors.stripe_publishable_key', # checkout context processor
+                'bag.context_processors.bag_contents',  # bag context processor
+                'checkout.context_processors.stripe_publishable_key',  # checkout context processor
 
             ],
         },
@@ -129,7 +130,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/bag/merge-after-login/' # created with chat gpt to merge bags after login
+# created with chat gpt to merge bags after login
+LOGIN_REDIRECT_URL = '/bag/merge-after-login/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -173,7 +175,6 @@ AUTH_PASSWORD_VALIDATORS = [
 HANDLER403 = "project_4.views.error_403"
 HANDLER404 = "project_4.views.error_404"
 HANDLER500 = "project_4.views.error_500"
-
 
 
 # Internationalization

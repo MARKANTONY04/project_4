@@ -19,10 +19,12 @@ def service_detail(request, service_type, pk):
     if service_type == "subscription":
         service = get_object_or_404(GymSubscription, pk=pk)
     elif service_type == "class":
-        service = get_object_or_404(FitnessClass, pk=pk)  
+        service = get_object_or_404(FitnessClass, pk=pk)
     elif service_type == "guide":
         service = get_object_or_404(NutritionGuide, pk=pk)
     else:
         return redirect("services_list")
 
-    return render(request, "services/service_detail.html", {"service": service})
+    return render(request,
+                  "services/service_detail.html",
+                  {"service": service})

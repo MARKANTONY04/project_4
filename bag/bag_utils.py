@@ -2,6 +2,7 @@ from .models import SavedBagItem
 
 # Handles anonymous vs logged-in storage seamlessly
 
+
 def get_bag_items(request):
     bag_items = []
 
