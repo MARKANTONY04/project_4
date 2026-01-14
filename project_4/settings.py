@@ -145,38 +145,9 @@ WSGI_APPLICATION = 'project_4.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         conn_max_age=600,
-#         ssl_require=True
-#     )
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
-# DATABASES = {
-#     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-# }
-
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         default="sqlite:///db.sqlite3",  # fallback for local
-#         conn_max_age=600,
-#         ssl_require=True
-#     )
-# }
 
 
 # Password validation
@@ -196,6 +167,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Error pages
+
+HANDLER403 = "project_4.views.error_403"
+HANDLER404 = "project_4.views.error_404"
+HANDLER500 = "project_4.views.error_500"
+
 
 
 # Internationalization
