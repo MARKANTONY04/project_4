@@ -29,3 +29,7 @@ urlpatterns = [
     path("admin-panel/", include("adminpanel.urls")),  
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler403 = "project_4.views.error_403"
+handler404 = "project_4.views.error_404"
+handler500 = "project_4.views.error_500"

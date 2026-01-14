@@ -3,9 +3,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from services.models import GymSubscription, FitnessClass, NutritionGuide
 from .forms import GymSubscriptionForm, FitnessClassForm, NutritionGuideForm
 from django.contrib.auth.decorators import user_passes_test
+from django.core.exceptions import PermissionDenied
 
 def staff_check(user):
-    return user.is_staff
+    if user.is_staff:
+        return True
+    raise PermissionDenied
 
 
 @user_passes_test(staff_check)
