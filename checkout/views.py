@@ -100,7 +100,11 @@ def create_checkout_session(request):
             + "?session_id={CHECKOUT_SESSION_ID}",
             cancel_url=domain + reverse("checkout:cancel"),
             metadata={
-                "user_id": request.user.id if request.user.is_authenticated else ""
+                "user_id": (
+                    request.user.id
+                    if request.user.is_authenticated
+                    else ""
+                )
             },
         )
     except Exception as exc:
