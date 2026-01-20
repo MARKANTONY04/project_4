@@ -11,16 +11,25 @@
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body card-bg">
-                    <h5 class="card-title">{{ subscription.name }}</h5>
+                    <h3 class="card-title">{{ subscription.name }}</h3>
                     <p class="card-text">{{ subscription.description }}</p>
                     <p><strong>Price:</strong> £{{ subscription.price }}</p>
                     <p><strong>Duration:</strong> {{ subscription.duration_months }} months</p>
 
-                    <form action="{% url 'bag:add_to_bag' 'subscription' subscription.id %}" method="POST" class="form-inline">
-                    {% csrf_token %}
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    <input type="number" name="quantity" value="1" min="1" class="form-control form-control-sm mr-2" style="width: 70px;">
-                    <button type="submit" class="btn btn-success btn-sm">Add to Bag</button>
+                    <form action="{% url 'bag:add_to_bag' 'subscription' subscription.id %}"
+                          method="POST"
+                          class="form-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="number"
+                               name="quantity"
+                               value="1"
+                               min="1"
+                               class="form-control form-control-sm mr-2"
+                               style="width: 70px;">
+                        <button type="submit" class="btn btn-success btn-sm">
+                            Add to Bag
+                        </button>
                     </form>
                 </div>
             </div>
@@ -37,16 +46,25 @@
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body card-bg">
-                    <h5 class="card-title">{{ gym_class.name }}</h5>
+                    <h3 class="card-title">{{ gym_class.name }}</h3>
                     <p class="card-text">{{ gym_class.description }}</p>
                     <p><strong>Price:</strong> £{{ gym_class.price }}</p>
                     <p><strong>Schedule:</strong> {{ gym_class.schedule }}</p>
 
-                    <form action="{% url 'bag:add_to_bag' 'class' gym_class.id %}" method="POST" class="form-inline">
-                    {% csrf_token %}
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    <input type="number" name="quantity" value="1" min="1" class="form-control form-control-sm mr-2" style="width: 70px;">
-                    <button type="submit" class="btn btn-success btn-sm">Add to Bag</button>
+                    <form action="{% url 'bag:add_to_bag' 'class' gym_class.id %}"
+                          method="POST"
+                          class="form-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="number"
+                               name="quantity"
+                               value="1"
+                               min="1"
+                               class="form-control form-control-sm mr-2"
+                               style="width: 70px;">
+                        <button type="submit" class="btn btn-success btn-sm">
+                            Add to Bag
+                        </button>
                     </form>
                 </div>
             </div>
@@ -63,15 +81,24 @@
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body card-bg">
-                    <h5 class="card-title">{{ guide.title }}</h5>
+                    <h3 class="card-title">{{ guide.title }}</h3>
                     <p class="card-text">{{ guide.content_summary }}</p>
                     <p><strong>Price:</strong> £{{ guide.price }}</p>
 
-                    <form action="{% url 'bag:add_to_bag' 'guide' guide.id %}" method="POST" class="form-inline">
-                    {% csrf_token %}
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    <input type="number" name="quantity" value="1" min="1" class="form-control form-control-sm mr-2" style="width: 70px;">
-                    <button type="submit" class="btn btn-success btn-sm">Add to Bag</button>
+                    <form action="{% url 'bag:add_to_bag' 'guide' guide.id %}"
+                          method="POST"
+                          class="form-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="number"
+                               name="quantity"
+                               value="1"
+                               min="1"
+                               class="form-control form-control-sm mr-2"
+                               style="width: 70px;">
+                        <button type="submit" class="btn btn-success btn-sm">
+                            Add to Bag
+                        </button>
                     </form>
                 </div>
             </div>

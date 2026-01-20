@@ -8,13 +8,15 @@
         <div class="card-header bg-success text-white text-center">
             <h2 class="mb-0">✅ Thank You for Your Order!</h2>
         </div>
+
         <div class="card-body">
             <p class="text-muted text-center">
                 Your payment was successful. Below is your order receipt.
             </p>
 
             <!-- Order Summary -->
-            <h4 class="mt-4">Order Summary</h4>
+            <h3 class="mt-4">Order Summary</h3>
+
             <table class="table table-striped">
                 <thead class="table-light">
                     <tr>
@@ -24,6 +26,7 @@
                         <th class="text-end">Total</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     {% for item in order.lineitems.all %}
                     <tr>
@@ -34,6 +37,7 @@
                     </tr>
                     {% endfor %}
                 </tbody>
+
                 <tfoot>
                     <tr class="table-success">
                         <td colspan="3" class="text-end fw-bold">Total Paid:</td>
@@ -42,7 +46,6 @@
                 </tfoot>
             </table>
 
-            <!-- Continue Shopping -->
             <div class="text-center mt-4">
                 <a href="{% url 'services:services_list' %}" class="btn btn-lg btn-success">
                     🛒 Continue Shopping

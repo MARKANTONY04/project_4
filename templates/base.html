@@ -1,20 +1,18 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tony's Gym{% block extra_title %}{% endblock %}</title>
+
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="media/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
-    <link rel="manifest" href="media/favicon/site.webmanifest">
-
-    {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% endblock %}
-
-    {% block extra_meta %}{% endblock %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
 
     {% block corecss %}
         <link rel="stylesheet"
@@ -29,108 +27,89 @@
     {% endblock %}
 
     {% block extra_css %}{% endblock %}
-
-    {% block corejs %}
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
-                integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-                crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-                crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-                crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/3d07db4e3b.js" crossorigin="anonymous"></script>
-    {% endblock %}
-
-    {% block extra_js %}{% endblock %}
-
-    <title>Tony's Gym{% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'home' %}"><strong>Tony's Gym</strong></a>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <strong>Tony's Gym</strong>
+        </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}">
-                    Home <span class="sr-only">(current)</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'services:services_list' %}">
-                    Our Services
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'bag:view_bag' %}">
-                    <div class="text-center">
-                        <i class="fas fa-shopping-bag fa-lg"></i>
-                        <span class="d-block">
-                            Bag ({{ bag_total_quantity }})
-                        </span>
-                    </div>
-                </a>
-            </li>
-
-            {% if request.user.is_staff %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin_dashboard' %}">
-                        Admin Panel
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'services:services_list' %}">
+                        Our Services
                     </a>
                 </li>
-            {% endif %}
 
-            {% if user.is_authenticated %}
-                <li class="nav-item nav-link">
-                    <strong>Hi {{ user.first_name }}!</strong>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                    <a class="nav-link" href="{% url 'bag:view_bag' %}">
+                        <span class="text-center d-inline-block">
+                            <i class="fas fa-shopping-bag fa-lg"></i>
+                            <span class="d-block">
+                                Bag ({{ bag_total_quantity }})
+                            </span>
+                        </span>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'edit_profile' %}">Edit Profile</a>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                </li>
-            {% endif %}
-        </ul>
 
-        <span class="navbar-text">
-            The best gym in the UK
-        </span>
-    </div>
-</nav>
+                {% if request.user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'admin_dashboard' %}">
+                            Admin Panel
+                        </a>
+                    </li>
+                {% endif %}
 
-{% if messages %}
-    <div class="message-container"></div>
-{% endif %}
+                {% if user.is_authenticated %}
+                    <li class="nav-item nav-link">
+                        <strong>Hi {{ user.first_name }}!</strong>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'edit_profile' %}">Edit Profile</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                {% endif %}
+            </ul>
+
+            <span class="navbar-text">
+                The best gym in the UK
+            </span>
+        </div>
+    </nav>
+</header>
 
 <main>
     {% block page_header %}{% endblock %}
     {% block content %}{% endblock %}
 </main>
-
-{% block postloadjs %}{% endblock %}
 
 <button id="backToTopBtn" title="Go to top">↑</button>
 
@@ -138,74 +117,59 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4 mb-3">
-                <h2 class="footer-title">About Tony's Gym</h2>
+            <section class="col-md-4 mb-3">
+                <h3>About Tony's Gym</h3>
                 <p>
                     At Tony's Gym, we’re dedicated to helping you achieve your fitness goals.
                     From modern equipment and expert trainers to personalized nutrition plans,
                     we’re here to support your journey.
                 </p>
-            </div>
+            </section>
 
-            <div class="col-md-2 mb-3">
-                <h2 class="footer-title">Quick Links</h2>
+            <section class="col-md-2 mb-3">
+                <h3>Quick Links</h3>
                 <ul class="list-unstyled">
-                    <li><a href="{% url 'home' %}" class="footer-link">Home</a></li>
-                    <li><a href="{% url 'services:services_list' %}" class="footer-link">Services</a></li>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'services:services_list' %}">Services</a></li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="col-md-3 mb-3">
-                <h2 class="footer-title">Contact Us</h2>
+            <section class="col-md-3 mb-3">
+                <h3>Contact Us</h3>
                 <p>
                     Tony's Gym<br>
                     42 High Street<br>
                     Manchester, M1 4AB<br>
                     United Kingdom
                 </p>
-                <p><i class="fas fa-phone-alt"></i> +44 161 555 0199</p>
-                <p><i class="fas fa-envelope"></i> info@tonysgym.co.uk</p>
-                <p><i class="fas fa-clock"></i> Mon–Fri: 6am–10pm, Sat–Sun: 8am–8pm</p>
-            </div>
+                <p>📞 +44 161 555 0199</p>
+                <p>✉️ info@tonysgym.co.uk</p>
+            </section>
 
-            <div class="col-md-3 mb-3">
-                <h2 class="footer-title">Find Us</h2>
+            <section class="col-md-3 mb-3">
+                <h3>Find Us</h3>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2371.225261778997!2d-2.237431484178989!3d53.4807598799959"
-                    class="iframe"
                     height="200"
                     style="border:0;"
-                    allowfullscreen
+                    allowfullscreen="allowfullscreen"
                     loading="lazy"
                     aria-label="Map showing the location of Tony's Gym">
                 </iframe>
-            </div>
-        </div>
-
-        <hr class="bg-light">
-
-        <div class="text-center mb-3">
-            <h2 class="footer-title">Connect With Us</h2>
-            <a href="https://en-gb.facebook.com/" target="_blank" aria-label="Visit our Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" aria-label="Visit our Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://x.com/?lang=en-gb" target="_blank" aria-label="Visit our Twitter/X">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.youtube.com/" target="_blank" aria-label="Visit our YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
+            </section>
         </div>
 
         <div class="text-center py-3">
-            <p class="mb-0">&copy; {{ now|date:"Y" }} Tony's Gym. All rights reserved.</p>
+            <p>&copy; {{ now|date:"Y" }} Tony's Gym. All rights reserved.</p>
         </div>
     </div>
 </footer>
 
 <script src="{% static 'js/back_to_top.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/3d07db4e3b.js" crossorigin="anonymous"></script>
+
+{% block postloadjs %}{% endblock %}
 </body>
 </html>

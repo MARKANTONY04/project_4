@@ -1,4 +1,3 @@
-<!-- chat gpt helped get this page up and running with the javascript and table structure -->
 {% extends "base.html" %}
 {% block content %}
 <div class="container mt-5">
@@ -23,7 +22,13 @@
           <td>
             <form action="{% url 'bag:update_bag' item.type item.id %}" method="POST" class="form-inline">
               {% csrf_token %}
-              <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control form-control-sm mr-2" style="width: 70px;">
+              <input
+                type="number"
+                name="quantity"
+                value="{{ item.quantity }}"
+                min="1"
+                class="form-control form-control-sm mr-2"
+                style="width: 70px;">
               <button type="submit" class="btn btn-sm btn-primary">Update</button>
             </form>
           </td>
@@ -41,29 +46,34 @@
 
     <!-- Totals + Buttons -->
     <div class="mt-4 d-flex justify-content-between align-items-center">
-      <h4>Total: £{{ grand_total }}</h4>
+      <h2>Total: £{{ grand_total }}</h2>
       <div>
         <a href="{% url 'services:services_list' %}" class="btn btn-outline-secondary">
           ← Continue Shopping
         </a>
-        <button id="checkout-button" class="btn btn-success">Proceed to Checkout →</button>
+        <button type="button" id="checkout-button" class="btn btn-success">
+          Proceed to Checkout →
+        </button>
       </div>
     </div>
 
   {% else %}
     <div class="alert alert-info text-center">
-      <h4>Your bag is empty</h4>
-      <p><a href="{% url 'services:services_list' %}" class="btn btn-primary">Browse Services</a></p>
+      <h2>Your bag is empty</h2>
+      <p>
+        <a href="{% url 'services:services_list' %}" class="btn btn-primary">
+          Browse Services
+        </a>
+      </p>
     </div>
   {% endif %}
 </div>
 {% endblock %}
 
 {% block postloadjs %}
-
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  document.getElementById('checkout-button').addEventListener('click', function(evt){
+  document.getElementById('checkout-button')?.addEventListener('click', function (evt) {
     evt.preventDefault();
     fetch("{% url 'checkout:create_session' %}", {
       method: 'POST',
@@ -71,14 +81,13 @@
         'X-CSRFToken': '{{ csrf_token }}',
         'Accept': 'application/json'
       },
-      body: new URLSearchParams({}) // add any fields if needed
+      body: new URLSearchParams({})
     })
     .then(res => res.json())
     .then(data => {
       if (data.url) {
-        window.location = data.url; // server returned session.url
+        window.location = data.url;
       } else if (data.id) {
-        // fallback: use stripe.js
         const stripe = Stripe("{{ STRIPE_PUBLISHABLE_KEY }}");
         stripe.redirectToCheckout({ sessionId: data.id });
       } else {
@@ -87,5 +96,4 @@
     });
   });
 </script>
-
 {% endblock %}
