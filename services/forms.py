@@ -1,3 +1,4 @@
+# chat gpt helped create this forms.py file
 from django import forms
 from .models import GymSubscription, FitnessClass, NutritionGuide
 

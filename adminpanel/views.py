@@ -1,3 +1,8 @@
+# chat gpt helped create this views.py file 
+# for the admin panel and reformatted code to fix bugs
+
+# adminpanel/views.py
+
 from django.contrib.auth.decorators import user_passes_test
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, redirect, render

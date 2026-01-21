@@ -1,4 +1,4 @@
-# checkout/views.py
+# chat gpt helped create this views.py file
 # checkout/views.py
 import json
 from decimal import Decimal

@@ -1,6 +1,6 @@
-# add to handle merging session bag after login and upading bag
+# add to handle merging session bag after login and updating bag
 
-# used chat gpt to reformat to fix errors
+# used chat gpt to help reformat this file to fix errors by cleaning up code
 
 # bag/views.py
 from decimal import Decimal
