@@ -1,5 +1,4 @@
-# chat gpt helped create this views.py file 
-# for the admin panel and reformatted code to fix bugs
+# chat gpt helped reformat code to fix bugs
 
 # adminpanel/views.py
 

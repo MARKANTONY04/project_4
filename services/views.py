@@ -1,4 +1,4 @@
-#chat gpt helped create this views.py file
+# chat gpt helped create this views.py file
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import GymSubscription, FitnessClass, NutritionGuide
 
