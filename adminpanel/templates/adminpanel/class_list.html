@@ -5,7 +5,7 @@
 
 {% for c in classes %}
 <div class="card p-3 mb-2">
-    <h4>{{ c.name }}</h4>
+    <h2>{{ c.name }}</h2>
     <p>£{{ c.price }}</p>
     <a href="{% url 'edit_class' c.id %}" class="btn btn-primary btn-sm">Edit</a>
     <a href="{% url 'delete_class' c.id %}" class="btn btn-danger btn-sm">Delete</a>
