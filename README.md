@@ -288,7 +288,7 @@ I fixed deployment issues caused by missing static file references by running th
 
 Error pages were create and added successfully to the project and were tested extensively in the IDE and deployed Heroku project, with both fully functioning.
 
-🧪 Validation (Updated)
+Validation (Updated)
 
 HTML: All templates validated using the W3C Validator after accounting for Django template syntax.
 
@@ -304,7 +304,7 @@ Performance: High 80s
 
 Best Practices & SEO: High scores achieved
 
-⚠️ Known Limitations (Transparent Disclosure)
+Known Limitations (Transparent Disclosure)
 
 Google Maps embeds can occasionally fail due to third-party restrictions; therefore reliance on core content and address details was prioritised.
 
@@ -321,6 +321,132 @@ All code, python, HTML, CSS, and JavaScript pass through code validators, meanin
 CRUD functionality has been successfully implemented into this project, as superusers/staff can create, edit, or delete the services this site offers via the admin panel app. 
 
 The deployment section covers deployment on HEROKU, not Mongo, this error has been fixed now.
+
+Data Schema and Model Relationships
+
+This project uses Django’s ORM to define and manage the application’s data models.
+
+The database schema is designed to support user accounts, services, purchases, and order-related functionality while maintaining clear relationships between models.
+
+Entity Relationship Overview
+
+The core relationships in the application are:
+
+User → Profile (One-to-One)
+
+User → Orders (One-to-Many)
+
+Order → OrderLineItem (One-to-Many)
+
+
+Model Descriptions
+User (Django Built-in Model)
+
+The built-in Django User model is used for authentication and authorization.
+
+Key Fields:
+
+username
+
+email
+
+password
+
+first_name
+
+last_name
+
+Relationships:
+
+One user can have one profile
+
+One user can have multiple orders
+
+
+UserProfile
+
+Stores additional user-specific information that is not included in Django’s default User model.
+
+Fields:
+
+user (OneToOneField → User)
+
+Relationship:
+
+One-to-One with User
+
+Service
+
+Represents a gym service offered by Tony’s Gym.
+
+Fields:
+
+name
+
+description
+
+price
+
+duration
+
+is_active
+
+Relationships:
+
+One service can appear in many order line items
+
+One service can be associated with many reservations
+
+
+Order
+
+Represents a completed purchase.
+
+Fields:
+
+user_profile (ForeignKey → UserProfile)
+
+order_total
+
+grand_total
+
+Relationships:
+
+One order belongs to one user profile
+
+One order contains multiple order line items
+
+
+OrderLineItem
+
+Represents an individual service within an order.
+
+Fields:
+
+order (ForeignKey → Order)
+
+service (ForeignKey → Service)
+
+quantity
+
+lineitem_total
+
+Relationships:
+
+Many line items belong to one order
+
+Many line items reference one service
+
+
+Design Rationale
+
+Normalization: Data is structured to avoid duplication.
+
+Scalability: Relationships allow future expansion (e.g memberships).
+
+Security: User-related data is separated into profiles to reduce exposure.
+
+Maintainability: Django ORM relationships make querying predictable and readable.
 
 
 This resubmission addresses all identified validation, deployment, and accessibility issues while maintaining full functionality of the application.
@@ -688,7 +814,7 @@ Code institute as a template for this README.md. Like all good software develope
 I would like to thank W3 as I learned some of the CSS I used for this project,
 underline text in particular.
 
-Also I’d again like to thank chat GPT who helped me create this project. I live a busy life with a full time job and personal commitments, the time I have available to work on this can sometimes be limited so utilising AI in the age of AI was a smart way to help me get this project done on time. You can see on some of the templates and views in this project I used Chat GPT to fix major issues by rewriting the code with errors (in the views), and also save time by generating some of the tables and other featutres in the tamplates (emoji's, the iframe map, the checkout and bag javascript in the script tags etc). It saved me time as it would have taken far longer if I had to do these myself, and am thankful for the time save it gave me.
+Also I’d again like to thank chat GPT who helped me create this project. I live a busy life with a full time job and personal commitments, the time I have available to work on this can sometimes be limited so utilising AI in the age of AI was a smart way to help me get this project done on time. You can see on some of the templates and views in this project I used Chat GPT to fix major issues by rewriting the code with errors (in the views), and also save time by generating some of the tables and other featutres in the tamplates (emoji's, the checkout and bag javascript in the script tags etc). It saved me time as it would have taken far longer if I had to do these myself, and am thankful for the time save it gave me. The files are notes when I used Chat GPT to fix and create code, with a comment at the top of the file.
 
 Last, and certainly not least I would like to once again thank Code Institute. I have learned backend end software/web development with Django in a matter of weeks
 thank to them and would not have been able to create this project without them.
