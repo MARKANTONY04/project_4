@@ -246,6 +246,77 @@ descriptions for the services page, saving me a lot of time to focus elsewhere s
 
 ### 4. Testing
 
+#### Updates Since Initial Submission (Resubmission Changes)
+
+Following feedback from the initial submission, several improvements and fixes were made to ensure the project meets assessment criteria, validates correctly, and deploys successfully in a production environment.
+
+HTML Validation & Template Structure
+
+Ensured all base templates include:
+
+A valid document structure
+
+A <title> element in the <head>
+
+Correct semantic sectioning (header, main, footer)
+
+Revalidated templates using the W3C HTML Validator, accounting for Django template syntax where applicable.
+
+Google Maps Embed Issue
+
+The Google Maps iframe embed originally used an invalid pb parameter, resulting in an “Invalid Request” error.
+
+As this is a third-party embed issue outside the control of the application, the map was corrected using a valid Google Maps embed URL. This change ensured W3C HTML compliance, no runtime iframe errors, and improved accessibility and reliability.
+
+
+Static Files & Favicon Handling
+
+I resolved a production error caused by missing static manifest entries when deploying to Heroku. Also, I identified that favicon assets were incorrectly stored in the media/ directory. I corrected the setup so that favicons are treated as static files, and collectstatic runs successfully using WhiteNoise. Static files were re-collected using:
+
+python manage.py collectstatic --noinput
+
+
+This resolved the Heroku 500 Internal Server Error related to static files.
+
+Heroku Deployment Fixes
+
+I fixed deployment issues caused by missing static file references by running the coolectstatic command and moving the favicon files to the staticc folder, this fixes a 500 error.
+
+
+
+⚠️ Error Pages Behaviour (Production)
+
+Error pages were create and added successfully to the project and were tested extensively in the IDE and deployed Heroku project, with both fully functioning.
+
+🧪 Validation (Updated)
+
+HTML: All templates validated using the W3C Validator after accounting for Django template syntax.
+
+CSS: Passed W3C CSS validation with no errors.
+
+JavaScript: Tested using JSHint with no critical warnings.
+
+Python: Code follows PEP8 guidelines, and all bugs were fixed.
+
+Lighthouse:
+
+Performance: High 80s
+
+Best Practices & SEO: High scores achieved
+
+⚠️ Known Limitations (Transparent Disclosure)
+
+Google Maps embeds can occasionally fail due to third-party restrictions; therefore reliance on core content and address details was prioritised.
+
+Some favicon behaviour may vary between browsers due to caching.
+
+Minor layout inconsistencies may exist on very large desktop screens but do not affect functionality.
+
+These limitations do not impact the core functionality, usability, or assessment requirements of the project.
+
+
+This resubmission addresses all identified validation, deployment, and accessibility issues while maintaining full functionality of the application.
+
 #### Bug Fixes
 
 I encountered many bugs during the course of this project, both minor and major. I
