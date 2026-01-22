@@ -256,7 +256,7 @@ Ensured all base templates include:
 
 A valid document structure
 
-A <title> element in the <head>
+A title element in the head
 
 Correct semantic sectioning (header, main, footer)
 
@@ -284,7 +284,7 @@ I fixed deployment issues caused by missing static file references by running th
 
 
 
-⚠️ Error Pages Behaviour (Production)
+Error Pages Behaviour (Production)
 
 Error pages were create and added successfully to the project and were tested extensively in the IDE and deployed Heroku project, with both fully functioning.
 
@@ -328,6 +328,8 @@ This project uses Django’s ORM to define and manage the application’s data m
 
 The database schema is designed to support user accounts, services, purchases, and order-related functionality while maintaining clear relationships between models.
 
+
+
 Entity Relationship Overview
 
 The core relationships in the application are:
@@ -363,7 +365,9 @@ One user can have one profile
 One user can have multiple orders
 
 
-UserProfile
+
+
+###### UserProfile
 
 Stores additional user-specific information that is not included in Django’s default User model.
 
@@ -375,7 +379,9 @@ Relationship:
 
 One-to-One with User
 
-Service
+
+
+###### Service
 
 Represents a gym service offered by Tony’s Gym.
 
@@ -398,7 +404,9 @@ One service can appear in many order line items
 One service can be associated with many reservations
 
 
-Order
+
+
+###### Order
 
 Represents a completed purchase.
 
@@ -417,7 +425,10 @@ One order belongs to one user profile
 One order contains multiple order line items
 
 
-OrderLineItem
+
+
+
+###### OrderLineItem
 
 Represents an individual service within an order.
 
@@ -438,7 +449,9 @@ Many line items belong to one order
 Many line items reference one service
 
 
-Design Rationale
+
+
+###### Design Rationale
 
 Normalization: Data is structured to avoid duplication.
 
