@@ -314,6 +314,14 @@ Minor layout inconsistencies may exist on very large desktop screens but do not 
 
 These limitations do not impact the core functionality, usability, or assessment requirements of the project.
 
+However, I have styled all pages now, including email verification and error pages, attaining the crieria to pass Furthermore, email verfication emails are now sent allowing users to fully set up their profile to use the site.
+
+All code, python, HTML, CSS, and JavaScript pass through code validators, meaning this has reached the pass criteria.
+
+CRUD functionality has been successfully implemented into this project, as superusers/staff can create, edit, or delete the services this site offers via the admin panel app. 
+
+The deployment section covers deployment on HEROKU, not Mongo, this error has been fixed now.
+
 
 This resubmission addresses all identified validation, deployment, and accessibility issues while maintaining full functionality of the application.
 
@@ -517,54 +525,116 @@ This section will document the testing the website will undergo to ensure everyt
 
 ### 5. Deployment
 
-This project was deployed using Heroku. Code was committed to git, and then
-pushed to GitHub, which Heroku then procured the pushed code to deploy this
-project.
+Heroku Deployment (Django)
 
-To deploy this project, please follow the steps below:
+This project was deployed to Heroku using a standard Django deployment workflow.
 
-1. Create a ‘requirement.txt’ file using the terminal command ‘ pip freeze 
-requirements.txt’.
+The application was developed locally, version-controlled using Git, and pushed to GitHub before being deployed to Heroku.
 
-2. Create a Procfile with the terminal command ‘echo web: python app.py 
-procfile’.
+The live site can be found here:
 
-3. ‘git add’ and ‘git commit’ the new requirements and Procfile and then ’git push’ the project to GitHub.
+ [https://tonys-gym-072682cf827a.herokuapp.com/]
 
-4. Create a new app on the Heroku website by clicking the ‘New’ button in your
-dashboard. Give it a name and set the region to Europe. (You will need to
-create a Heroku account and log in if you have not already done so).
+Deployment Steps
+1. Create Required Files
 
-5. From the Heroku dashboard of your newly created application, click on
-‘Deploy’, ‘Deployment Method’ and select GitHub.
+The following files were created to support deployment:
 
-6. Confirm the linking of the Heroku app to the correct GitHub repository.
+requirements.txt
+Generated using:
 
-7. In the Heroku dashboard for the application, click on ‘Settings’, ‘Reveal
-Config Vars’.
+pip freeze > requirements.txt
 
-8. Set the following config vars:
 
-(Key – Value)
+Procfile
+Created in the project root with the following content:
 
-Debug – False
+web: gunicorn project_name.wsgi
 
-IP – 0.0.0.0
+2. Update Django Settings
 
-MONGO_URI – mongodb+srv://:@cluster_name-
-qtxun.mongodb.net/database_name?retryWrites=true~=majority
+In settings.py, the following changes were made for production:
 
-PORT – 5000
+DEBUG set to False
 
-SECRET_KEY – your_secret_key
+ALLOWED_HOSTS updated to include the Heroku app URL
 
-To get your MONGO_URI, read the MongoDB Atlas documentation on the official
-website. (Here: https://www.mongodb.com/docs/)
+Static file handling configured using WhiteNoise
 
-9. In the Heroku dashboard, click ‘Deploy’.
+SECRET_KEY read from environment variables
 
-10. In the ‘Manual Deployment’ section of this page, make sure the master branch
-is selected and then click ‘Deploy Branch’.
+STATIC_ROOT set to enable static file collection
+
+3. Push Code to GitHub
+
+All changes were committed and pushed to GitHub:
+
+git add .
+git commit -m "Prepare project for Heroku deployment"
+git push
+
+4. Create Heroku App
+
+Log in to Heroku
+
+Click New → Create New App
+
+Choose a unique app name
+
+Select Europe as the region
+
+5. Connect Heroku to GitHub
+
+Open the app dashboard in Heroku
+
+Navigate to the Deploy tab
+
+Select GitHub as the deployment method
+
+Search for and connect the correct GitHub repository
+
+6. Set Config Vars
+
+In the Settings tab, click Reveal Config Vars and add:
+
+Key	Value
+SECRET_KEY	= Django secret key
+DEBUG	= False
+DATABASE_URL	(Automatically provided by Heroku)
+DISABLE_COLLECTSTATIC	= 0
+
+Sensitive values are not committed to version control.
+
+7. Collect Static Files
+
+Static files were collected using:
+
+python manage.py collectstatic --noinput
+
+
+This ensures all CSS, JavaScript, and image assets are served correctly in production.
+
+8. Deploy Application
+
+In the Deploy tab, select the main branch
+
+Click Deploy Branch
+
+Wait for the build to complete
+
+Click Open App once deployment succeeds
+
+Post-Deployment
+
+The site was tested to ensure:
+
+Pages load correctly
+
+Static files are served
+
+Forms and user interactions work as expected
+
+Any deployment-related errors were identified using Heroku logs and resolved.
 
 11. The site is now successfully deployed.
 
